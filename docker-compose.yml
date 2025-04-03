@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_ENV: production
+      APP_KEY: ${APP_KEY}
+      # DB_CONNECTION=pgsql
+      # DB_HOST=${SUPABASE_HOST}
+      # DB_DATABASE=${SUPABASE_DB}
+      # DB_USERNAME=${SUPABASE_USER}
+      # DB_PASSWORD=${SUPABASE_PASSWORD}
