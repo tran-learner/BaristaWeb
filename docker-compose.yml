@@ -15,7 +15,18 @@ services:
       # DB_DATABASE=${SUPABASE_DB}
       # DB_USERNAME=${SUPABASE_USER}
       # DB_PASSWORD=${SUPABASE_PASSWORD}
-      DB_CONNECTION: sqlite
+      # DB_CONNECTION: sqlite
       # DB_URL: postgresql://postgres:BaristaWeb12345@db.safsghcjddrtiyqpyxqe.supabase.co:5432/postgres
       # DB_URL: psql -h db.safsghcjddrtiyqpyxqe.supabase.co -p 5432 -d postgres -U postgres
+      DB_CONNECTION: pgsql
+      # DB_HOST: db.safsghcjddrtiyqpyxqe.supabase.co
+      DB_HOST: db.safsghcjddrtiyqpyxqe.supabase.co
+
+      # DB_HOST: postgresql://postgres:BaristaWeb12345@db.safsghcjddrtiyqpyxqe.supabase.co:5432/postgres
+      DB_PORT: 5432  
+      DB_DATABASE: postgres 
+      DB_USERNAME: postgres 
+      DB_PASSWORD: BaristaWeb12345  
+      DB_SSL: require
+
 
