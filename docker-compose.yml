@@ -15,3 +15,7 @@ services:
       # DB_DATABASE=${SUPABASE_DB}
       # DB_USERNAME=${SUPABASE_USER}
       # DB_PASSWORD=${SUPABASE_PASSWORD}
+      # DB_CONNECTION: pgsql
+      # DB_URL: postgresql://postgres:BaristaWeb12345@db.safsghcjddrtiyqpyxqe.supabase.co:5432/postgres
+      # DB_URL: psql -h db.safsghcjddrtiyqpyxqe.supabase.co -p 5432 -d postgres -U postgres
+
