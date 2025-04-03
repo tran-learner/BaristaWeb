@@ -9,6 +9,11 @@ RUN apt-get update && apt-get install -y \
 # Cài đặt Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+
+# Cài đặt Node.js và NPM
+RUN apt-get install -y nodejs npm
+
+
 # Kích hoạt mod_rewrite cho Apache
 RUN a2enmod rewrite
 
@@ -20,6 +25,13 @@ COPY . .
 
 # Cài đặt các package Laravel
 RUN composer install --no-dev --optimize-autoloader
+
+# Cài đặt các package Node.js
+RUN npm install
+
+# Chạy lệnh build Vite
+RUN npm run build
+
 
 # Phân quyền storage và cache
 RUN chmod -R 777 storage bootstrap/cache
@@ -33,8 +45,10 @@ RUN echo '<Directory /var/www/html/public>' >> /etc/apache2/apache2.conf \
 # Cập nhật thư mục root của Apache để trỏ tới thư mục public của Laravel
 RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
 
+
 # Mở cổng 80 (Apache)
 EXPOSE 80
 
 # Chạy Apache trong foreground
 CMD ["apache2-foreground"]
+# CMD ["sh", "-c", "npm run dev & apache2-foreground"]
