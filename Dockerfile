@@ -26,6 +26,10 @@ COPY . .
 # Cài đặt các package Laravel
 RUN composer install --no-dev --optimize-autoloader
 
+# Cài dotenv cho vite
+RUN npm install dotenv --save-dev
+
+
 # Cài đặt các package Node.js
 RUN npm install
 
