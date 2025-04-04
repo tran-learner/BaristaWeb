@@ -4,6 +4,9 @@ services:
     build: .
     ports:
       - "8000:80"
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     volumes:
       - .:/var/www/html
     environment:
@@ -20,13 +23,16 @@ services:
       # DB_URL: psql -h db.safsghcjddrtiyqpyxqe.supabase.co -p 5432 -d postgres -U postgres
       DB_CONNECTION: pgsql
       # DB_HOST: db.safsghcjddrtiyqpyxqe.supabase.co
-      DB_HOST: db.safsghcjddrtiyqpyxqe.supabase.co
+      # DB_HOST: db.safsghcjddrtiyqpyxqe.supabase.co
 
       # DB_HOST: postgresql://postgres:BaristaWeb12345@db.safsghcjddrtiyqpyxqe.supabase.co:5432/postgres
-      DB_PORT: 5432  
+      DB_HOST: aws-0-ap-southeast-1.pooler.supabase.com
+
+      DB_PORT: 6543  
       DB_DATABASE: postgres 
-      DB_USERNAME: postgres 
+      DB_USERNAME: postgres.safsghcjddrtiyqpyxqe
       DB_PASSWORD: BaristaWeb12345  
+      POOL_MODEL: transaction
       DB_SSL: require
 
 
