@@ -4,7 +4,7 @@ return [
         [
             'name'=> 'Coffee',
             'ingredients'=> ['Coffee','Sugar'],
-            'imagePath'=> 'images/coffee.webp',
+            'imagePath'=> 'images/coffee.jpg',
         ],
         [
             'name'=> 'Milk Coffee',
@@ -14,7 +14,7 @@ return [
         [
             'name'=> 'Tea',
             'ingredients'=> ['Tea','Sugar'],
-            'imagePath'=> 'images/icetea.webp',
+            'imagePath'=> 'images/tea.png',
         ],
         [
             'name'=> 'Milk Tea',

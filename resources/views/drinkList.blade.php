@@ -11,7 +11,7 @@
                         {{-- <img src="{{ Vite::asset($drink['imagePath']) }}" alt=""
                             class="w-[160px] h-[150px] sm:w-[210px] sm:h-[180px]"> --}}
                         <img src="{{ asset($drink['imagePath']) }}" alt=""
-                            class="w-[160px] h-[150px] sm:w-[210px] sm:h-[180px]">
+                            class="w-[140px] h-[130px] sm:w-[210px] sm:h-[180px]">
                     </div>
 
                     <div class="flex-1">
