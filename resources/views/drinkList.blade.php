@@ -8,7 +8,9 @@
                     class="flex flex-col py-3 my-3 rounded-2xl shadow-md border-gray-200">
 
                     <div id="imgContainer" class="flex-4">
-                        <img src="{{ Vite::asset($drink['imagePath']) }}" alt=""
+                        {{-- <img src="{{ Vite::asset($drink['imagePath']) }}" alt=""
+                            class="w-[160px] h-[150px] sm:w-[210px] sm:h-[180px]"> --}}
+                        <img src="{{ asset($drink['imagePath']) }}" alt=""
                             class="w-[160px] h-[150px] sm:w-[210px] sm:h-[180px]">
                     </div>
 
