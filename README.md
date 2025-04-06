@@ -1,14 +1,7 @@
 ## install packages
 npm install tailwindcss @tailwindcss/vite
 
-##---------------------------------------------
-Project structure:
-1. Routes: nằm trong file routes\web.php
-2. Controllers: folder app\Http\Controllers
-    - Get the data of drinks (name, ingredient...) from file DrinkData "config\drinks\drinkData.php"
-    - Handle logic and pass the parameters to its corresponding View.
-3. View: acts like a HTML file for showing the content on the web browser.
-
+---------------------------------------------------------------------------------
 Cấu trúc project:
 1. Routes: routes\web.php
     - Tất cả các routes của project phải được khai báo trong file này để route đó hoạt động được.
