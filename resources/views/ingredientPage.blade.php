@@ -60,7 +60,7 @@
         async function sendIngredientQuantity() {
             // const sugarValue = document.getElementById("sugarValue").textContent
             // const coffeeValue = document.getElementById("coffeeValue").textContent
-            const response = await fetch('https://12ac-125-235-237-21.ngrok-free.app/pumphandle', {
+            const response = await fetch('https://4383-125-235-237-21.ngrok-free.app/pumphandle', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
