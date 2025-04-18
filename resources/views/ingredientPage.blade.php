@@ -7,10 +7,10 @@
             @foreach ($ingredients as $ing)
                 <div class="flex items-center justify-center gap-5">
                     <label class="font-bold text-navy" for="{{ $ing . 'Input' }}">{{ $ing }}</label>
-                    <input type="range" id="{{ $ing . 'Input' }}" name="coffee" min="0" max="1000"
-                        data-output-id="{{ $ing . 'Output' }}" value="500" oninput="updateValueCF()"
+                    <input type="range" id="{{$ing.'Input'}}" name="coffee" min="0" max="1000"
+                        data-output-id="{{ $ing.'Output'}}" value="0" oninput=""
                         class="sm:w-96 h-20 ing-range">
-                    <output id="{{ $ing . 'Output' }}">500</output>
+                    <output id="{{$ing.'Output'}}">0</output>
                 </div>
             @endforeach
             <div class="flex justify-center items-center w-full">
@@ -24,58 +24,45 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("submitBtn").onclick = async function() {
-            await sendIngredientQuantity()
+            await sendIngredientQuantity();
         }
 
         document.querySelectorAll('.ing-range').forEach(input => {
             input.addEventListener('input', function() {
-                const outputId = this.dataset.outputId
-                const output = document.getElementById(outputId)
+                const outputId = this.dataset.outputId;
+                const output = document.getElementById(outputId);
                 if (output) {
-                    output.textContent = this.value
+                    output.textContent = this.value;
                 }
-            })
-        })
-
-        // async function sendIngredientQuantity() {
-        //     // const sugarValue = document.getElementById("sugarValue").textContent
-        //     // const coffeeValue = document.getElementById("coffeeValue").textContent
-        //     // const response = await fetch('http://127.0.0.1:8085/pumphandle', {
-        //     //     method: 'POST',
-        //     //     headers: {
-        //     //         'Content-Type': 'application/json'
-        //     //     },
-        //     //     body: JSON.stringify({
-        //     //         sugar: sugarValue,
-        //     //         coffee: coffeeValue
-        //     //     })
-        //     // })
-        //     // if (response.ok) alert('POST ok')
-        //     // else {
-        //     //     console.log(response.status)
-        //     // }
-        //     alert('Waiting for hw server...')
-        // }
+            });
+        });
 
         async function sendIngredientQuantity() {
-            // const sugarValue = document.getElementById("sugarValue").textContent
-            // const coffeeValue = document.getElementById("coffeeValue").textContent
-            const response = await fetch('https://4383-125-235-237-21.ngrok-free.app/pumphandle', {
+            // Get values from all sliders
+            const coffeeValue = document.getElementById('CoffeeInput') ? document.getElementById('CoffeeInput').value : 0;
+            const sugarValue = document.getElementById('SugarInput') ? document.getElementById('SugarInput').value : 0;
+            const teaValue = document.getElementById('TeaInput') ? document.getElementById('TeaInput').value : 0;
+            const milkValue = document.getElementById('MilkInput') ? document.getElementById('MilkInput').value : 0;
+
+            const response = await fetch('https://fdc6-125-235-236-149.ngrok-free.app/pumphandle', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    sugar: 122,
-                    coffee: 224,
-                    milk:500,
-                    tea:500,
+                    Coffee: coffeeValue,
+                    Sugar: sugarValue,
+                    Tea: teaValue,
+                    Milk: milkValue
                 })
-            })
-            if (response.ok) alert('POST ok')
-            else {
-                console.log(response.status)
+            });
+
+            if (response.ok) {
+                alert('Settings sent successfully!');
+            } else {
+                alert('Error sending settings');
+                console.log(response.status);
             }
         }
-    })
+    });
 </script>

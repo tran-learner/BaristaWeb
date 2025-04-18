@@ -3,7 +3,7 @@ return [
     'drinks' => [
         [
             'name'=> 'Coffee',
-            'ingredients'=> ['Coffee','Sugar'],
+            'ingredients'=> ['Coffee','Sugar',],
             'imagePath'=> 'images/coffee.jpg',
         ],
         [
