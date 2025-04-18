@@ -28,6 +28,7 @@
         
         document.getElementById("submitBtn").onclick = async function() {
             await sendIngredientQuantity();
+            
         }
 
         // Xử lý sự kiện cho tất cả slider
