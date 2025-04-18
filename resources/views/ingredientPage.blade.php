@@ -23,45 +23,41 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        // Khai báo object chứa thông tin nguyên liệu
+        const ingredients = ['Coffee', 'Sugar', 'Tea', 'Milk'];
+        
         document.getElementById("submitBtn").onclick = async function() {
             await sendIngredientQuantity();
         }
 
+        // Xử lý sự kiện cho tất cả slider
         document.querySelectorAll('.ing-range').forEach(input => {
             input.addEventListener('input', function() {
-                const outputId = this.dataset.outputId;
-                const output = document.getElementById(outputId);
-                if (output) {
-                    output.textContent = this.value;
-                }
+                const output = document.getElementById(this.dataset.outputId);
+                output && (output.textContent = this.value);
             });
         });
 
         async function sendIngredientQuantity() {
-            // Get values from all sliders
-            const coffeeValue = document.getElementById('CoffeeInput') ? document.getElementById('CoffeeInput').value : 0;
-            const sugarValue = document.getElementById('SugarInput') ? document.getElementById('SugarInput').value : 0;
-            const teaValue = document.getElementById('TeaInput') ? document.getElementById('TeaInput').value : 0;
-            const milkValue = document.getElementById('MilkInput') ? document.getElementById('MilkInput').value : 0;
+            // Tạo payload từ các giá trị slider
+            const payload = ingredients.reduce((acc, ing) => {
+                const input = document.getElementById(`${ing}Input`);
+                acc[ing.charAt(0).toUpperCase() + ing.slice(1)] = input ? input.value : 0;
+                return acc;
+            }, {});
 
-            const response = await fetch('https://fdc6-125-235-236-149.ngrok-free.app/pumphandle', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    Coffee: coffeeValue,
-                    Sugar: sugarValue,
-                    Tea: teaValue,
-                    Milk: milkValue
-                })
-            });
+            try {
+                const response = await fetch('https://fdc6-125-235-236-149.ngrok-free.app/pumphandle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
 
-            if (response.ok) {
-                alert('Settings sent successfully!');
-            } else {
-                alert('Error sending settings');
-                console.log(response.status);
+                response.ok ? alert('Settings sent!') : alert('Error occurred');
+            } catch (error) {
+                console.error('Fetch error:', error);
             }
         }
     });
