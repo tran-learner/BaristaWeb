@@ -20,6 +20,11 @@ return [
             'name'=> 'Milk Tea',
             'ingredients'=> ['Tea','Milk'],
             'imagePath'=> 'images/milktea.png',
+        ],
+        [
+            'name'=> 'Custom drinks',
+            'ingredients'=> ['Coffee','Sugar','Tea','Milk'],
+            'imagePath'=> 'images/custom.png',
         ]
     ]
 ];
