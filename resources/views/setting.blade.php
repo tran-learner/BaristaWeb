@@ -22,7 +22,7 @@
         async function sendCleaning() {
                 // Tạo object cleaning từ các giá trị slider
                 try {
-                    const response = await fetch('https://b85a-125-235-236-149.ngrok-free.app/pumphandle', {
+                    const response = await fetch('https://d584-125-235-236-149.ngrok-free.app/pumphandle', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@
             // Tạo object cleaning từ các giá trị slider
             cleaning.State = 1;
             try {
-                const response = await fetch('https://b85a-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://d584-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -60,7 +60,7 @@
             // Tạo object cleaning từ các giá trị slider
             cleaning.State = 2;
             try {
-                const response = await fetch('https://b85a-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://d584-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

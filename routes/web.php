@@ -14,4 +14,4 @@ Route::get('/', function () {
 Route::get('/drinks', [DrinkController::class,'getDrinks'])->name('initDrinkList');
 Route::get('/ingredients', [IngredientController::class,'index'])->name('getIngredients');
 Route::get('/pay', [payController::class, 'pay']);
-Route::get('/setting', [Setting::class, 'setting']);
+Route::get('/setting', [Setting::class, 'setting'])->name('Setting');;
