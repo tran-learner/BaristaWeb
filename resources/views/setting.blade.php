@@ -11,10 +11,10 @@
 
 <script>
     cleaning={
-        Coffee: 21600,
-        Milk: 21600,
-        Tea: 21600,
-        Sugar: 21600,
+        Coffee: 2160,
+        Milk: 2160,
+        Tea: 2160,
+        Sugar: 2160,
         State: 0,
     }
     document.addEventListener("DOMContentLoaded", function() {
@@ -36,38 +36,38 @@
                 }
             }
 
-        document.getElementById("shut").onclick = async function() {await sendCleaning();}
-        async function sendCleaning() {
+        document.getElementById("shut").onclick = async function() {await sendShut();}
+        async function sendShut() {
             // Tạo object cleaning từ các giá trị slider
             cleaning.State = 1;
             try {
-                const response = await fetch('https://48a5-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://ebe7-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(cleaning)
                 });
-
+                cleaning.State = 0;
                 response.ok ? "" : alert('Shutdown error : Could not receive responde from machine');
             } catch (error) {
                 console.error('Fetch error:', error);
             }
         }
 
-        document.getElementById("restart").onclick = async function() {await sendCleaning();}
-        async function sendCleaning() {
+        document.getElementById("restart").onclick = async function() {await sendRestart();}
+        async function sendRestart() {
             // Tạo object cleaning từ các giá trị slider
             cleaning.State = 2;
             try {
-                const response = await fetch('https://48a5-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://ebe7-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(cleaning)
                 });
-
+                cleaning.State = 0;
                 response.ok ? "" : alert('Shutdown error : Could not receive responde from machine');
             } catch (error) {
                 console.error('Fetch error:', error);
