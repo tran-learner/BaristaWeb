@@ -56,7 +56,7 @@
                     body: JSON.stringify(payload)
                 });
 
-                response.ok ? alert('Settings sent!') : alert('Error occurred');
+                response.ok ? alert('Barista completed') : alert('Barista request receive error :((');
             } catch (error) {
                 console.error('Fetch error:', error);
             }
