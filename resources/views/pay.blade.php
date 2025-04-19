@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action = "create-payment-link">
+    <form action = "/create-payment-link">
         
 </body>
 </html>
