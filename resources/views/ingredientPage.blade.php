@@ -46,9 +46,9 @@
                 acc[ing.charAt(0).toUpperCase() + ing.slice(1)] = input ? input.value : 0;
                 return acc;
             }, {});
-
+            payload.State = 0;
             try {
-                const response = await fetch('https://48a5-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://ebe7-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
