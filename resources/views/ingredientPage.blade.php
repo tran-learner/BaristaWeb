@@ -7,10 +7,13 @@
             @foreach ($ingredients as $ing)
                 <div class="flex items-center justify-center gap-5">
                     <label class="font-bold text-navy" for="{{ $ing . 'Input' }}">{{ $ing }}</label>
-                    <input type="range" id="{{$ing.'Input'}}" name="coffee" min="0" max="1000"
-                        data-output-id="{{ $ing.'Output'}}" value="0" oninput=""
-                        class="sm:w-96 h-20 ing-range">
-                    <output id="{{$ing.'Output'}}">0</output>
+                    <div class="flex gap-2">
+                        <button class="size-button" data-ing="{{ $ing }}" data-value="50">S</button>
+                        <button class="size-button" data-ing="{{ $ing }}" data-value="100">M</button>
+                        <button class="size-button" data-ing="{{ $ing }}" data-value="150">L</button>
+                    </div>
+                    <input type="hidden" id="{{ $ing . 'Input' }}" name="{{ $ing }}" value="0">
+                    <output id="{{ $ing . 'Output' }}">0</output>
                 </div>
             @endforeach
             <div class="flex justify-center items-center w-full">
@@ -25,30 +28,46 @@
     document.addEventListener("DOMContentLoaded", function() {
         // Khai báo object chứa thông tin nguyên liệu
         const ingredients = ['Coffee', 'Sugar', 'Tea', 'Milk'];
-        
+
         document.getElementById("submitBtn").onclick = async function() {
             await sendIngredientQuantity();
-            
         }
 
-        // Xử lý sự kiện cho tất cả slider
-        document.querySelectorAll('.ing-range').forEach(input => {
-            input.addEventListener('input', function() {
-                const output = document.getElementById(this.dataset.outputId);
-                output && (output.textContent = this.value);
+        // Event listener for the size buttons
+        document.querySelectorAll('.size-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const ingredient = this.dataset.ing;
+                const value = this.dataset.value;
+                const outputId = ingredient + 'Output';
+                const inputId = ingredient + 'Input';
+
+                document.getElementById(outputId).textContent = value;
+                document.getElementById(inputId).value = value;
+
+                // Remove green color from all buttons for this ingredient
+                const buttons = document.querySelectorAll(`.size-button[data-ing="${ingredient}"]`);
+                buttons.forEach(b => {
+                    b.style.backgroundColor = ''; // Reset to default background
+                    b.style.color = ''; // Reset text color if you have changed it
+                });
+
+                // Add green background to the clicked button
+                this.style.backgroundColor = 'green';
+                this.style.color = 'white'; // Make text visible on green background
             });
         });
 
         async function sendIngredientQuantity() {
-            // Tạo payload từ các giá trị slider
+            // Create payload from input values
             const payload = ingredients.reduce((acc, ing) => {
                 const input = document.getElementById(`${ing}Input`);
                 acc[ing.charAt(0).toUpperCase() + ing.slice(1)] = input ? input.value : 0;
                 return acc;
             }, {});
             payload.State = 0;
+
             try {
-                const response = await fetch('https://d584-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://05f1-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -63,3 +82,20 @@
         }
     });
 </script>
+
+<style>
+.size-button {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: 1px solid black;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.size-button:hover {
+    background-color: lightgreen; /* Light green on hover for better UX */
+}
+</style>
