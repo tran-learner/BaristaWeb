@@ -27,7 +27,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Khai báo object chứa thông tin nguyên liệu
-        const ingredients = ['Coffee', 'Sugar', 'Tea', 'Milk'];
+        const ingredients = ['Name','Coffee', 'Sugar', 'Tea', 'Milk','Price'];
 
         document.getElementById("submitBtn").onclick = async function() {
             await sendIngredientQuantity();

@@ -12,6 +12,7 @@ class IngredientController extends Controller
         $drinkName = collect($drinks)->firstWhere('name', $drink);
         if (!$drinkName){ abort(404, 'Drink not found');}
         $ingredients = $drinkName['ingredients'];
-        return view("ingredientPage",compact('ingredients','drink'));
+        $price= $drinks['price'];
+        return view("ingredientPage",compact('ingredients','drink','price'));
     }
 }
