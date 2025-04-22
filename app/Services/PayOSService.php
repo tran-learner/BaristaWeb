@@ -23,13 +23,14 @@ class PayOSService
             'x-client-id' => $this->clientId,
             'x-api-key' => $this->apiKey,
             'Content-Type' => 'application/json',
-        ])->post($this->baseUrl . '/payments/create', [
+        ])->post($this->baseUrl . '/v1/payments/create', [  // NOTE: added /v1 here
             'orderCode' => $orderCode,
             'amount' => $amount,
             'description' => 'Order #' . $orderCode,
             'returnUrl' => $returnUrl,
             'cancelUrl' => $cancelUrl,
         ]);
+        
 
         return $response->json();
     }
