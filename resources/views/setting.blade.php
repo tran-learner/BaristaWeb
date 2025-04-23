@@ -1,11 +1,12 @@
 @extends('welcome')
 @section('specifyContent')
 <div id="pageTitle" class="flex flex-1 items-center justify-center min-h-[100px]">
-    <h1 class="flex font-extrabold text-3xl text-navy">Setting</h1>
+    <h1 class="flex font-extrabold text-3xl text-navy"><pre>SETTING MACHINE
+        </pre></h1>
 </div>
-    <pre><br>Cleaning machine       <button id = "clean" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Clean</button></pre>
-    <pre><br>Shutdown machine       <button id = "shut" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Shutdown</button></pre>
-    <pre><br>Restart machine        <button id = "restart" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Restart</button></pre>
+    <pre><br>   Cleaning machine       <button id = "clean" style="background-color: #0075FF; color: white; padding: 10px 50px; border: none; border-radius: 4px; cursor: pointer;">Clean</button></pre>
+    <pre><br>   Shutdown machine       <button id = "shut" style="background-color: #eb4934; color: white; padding: 10px 50px; border: none; border-radius: 4px; cursor: pointer;">Shutdown</button></pre>
+    <pre><br>   Restart machine        <button id = "restart" style="background-color: #c6eb34; color: white; padding: 10px 50px; border: none; border-radius: 4px; cursor: pointer;">Restart</button></pre>
 </div>  
 @endsection
 

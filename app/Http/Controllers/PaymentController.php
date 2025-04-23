@@ -16,27 +16,32 @@ class PaymentController extends Controller
 
     public function create()
     {
-        $amount = 100000; // 100,000 VND
-        $orderCode = uniqid('ORD_');
-        $returnUrl = route('payment.success');
-        $cancelUrl = route('payment.cancel');
+    $amount = 100000;
+    $orderCode = uniqid('ORD_');
+    $returnUrl = route('payment.success');
+    $cancelUrl = route('payment.cancel');
 
-        $payment = $this->payOS->createPayment($amount, $orderCode, $returnUrl, $cancelUrl);
+    $payment = $this->payOS->createPayment($amount, $orderCode, $returnUrl, $cancelUrl);
 
-        if (isset($payment['data']['qrCode'])) {
-            return view('payment.qr', ['qrCodeUrl' => $payment['data']['qrCode']]);
-        }
+    // 🔍 Debug: dump the full response
+    \Log::info('PayOS response:', $payment);
+    dd($payment); // <-- stop here and see what PayOS returned
 
-        return redirect()->back()->with('error', 'Failed to generate QR code.');
+    if (isset($payment['data']['qrCode'])) {
+        return view('payment.qr', ['qrCodeUrl' => $payment['data']['qrCode']]);
     }
+
+    return redirect()->back()->with('error', 'Could not generate QR code.');
+    }
+
 
     public function success()
     {
-        return response('✅ Payment successful!', 200);
+        return '✅ Payment was successful!';
     }
 
     public function cancel()
     {
-        return response('❌ Payment cancelled.', 200);
+        return '❌ Payment was cancelled.';
     }
 }
