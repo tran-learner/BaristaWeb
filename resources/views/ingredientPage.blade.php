@@ -67,7 +67,7 @@
             payload.State = 0;
 
             try {
-                const response = await fetch('https://05f1-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://780f-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
