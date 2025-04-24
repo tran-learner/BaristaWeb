@@ -12,9 +12,9 @@ class CheckoutController extends Controller
         $data = [
             "orderCode" => intval(substr(strval(microtime(true) * 10000), -6)),
             "amount" => 2000,
-            "description" => "Thanh toán đơn hàng",
-            "returnUrl" => $YOUR_DOMAIN . "/success.html",
-            "cancelUrl" => $YOUR_DOMAIN . "/cancel.html"
+            "description" => "Drinking payment",
+            "returnUrl" => $YOUR_DOMAIN . "/success",
+            "cancelUrl" => $YOUR_DOMAIN . "/ingredients"
         ];
         error_log($data['orderCode']);
 

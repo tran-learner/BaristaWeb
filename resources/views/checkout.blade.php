@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Tạo Link thanh toán</title>
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
-    <body>
+@extends('welcome')
+@section('specifyContent')
+@section('title' , 'Drink List')
         <div class="main-box">
             <div class="checkout">
                 <div class="product">
@@ -14,12 +8,11 @@
                     <p><strong>Giá tiền:</strong> 2000 VNĐ</p>
                     <p><strong>Số lượng:</strong> 1</p>
                 </div>
-                <form action="/create-payment-link" method="post">
+                <form action="/create-payment-link" method="get">
                     <button type="submit" id="create-payment-link-btn">
                         Tạo Link thanh toán
                     </button>
                 </form>
             </div>
         </div>
-    </body>
-</html>
+@endsection

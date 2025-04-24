@@ -23,15 +23,16 @@ Route::get('/checkout', function () {
     return view('checkout');
 });
 
-Route::get('/success.html', function () {
+Route::get('/success', function () {
     return view('success');
 });
 
-Route::get('/cancel.html', function () {
+Route::get('/cancel', function () {
     return view('cancel');
 });
 
-Route::post('/create-payment-link', [CheckoutController::class, 'createPaymentLink']);
+
+Route::get('/create-payment-link', [CheckoutController::class, 'createPaymentLink']);
 
 Route::prefix('/order')->group(function () {
     Route::post('/create', [OrderController::class, 'createOrder']);
