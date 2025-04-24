@@ -11,6 +11,7 @@
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.1",
         "laravel/tinker": "^2.10.1",
+        "payment/payos": "@dev",
         "payos/payos": "^1.0",
         "spatie/flare-client-php": "^1.10",
         "spatie/ignition": "^1.15",
@@ -78,5 +79,12 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+  {
+    "type": "path",
+    "url": "packages/payment/payos"
+  }
+]
+
 }
