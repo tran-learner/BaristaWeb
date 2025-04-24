@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2e79ee000a1885169a08438900d856e",
+    "content-hash": "adba26b363361a2a780518f7b13966c5",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3529,32 +3529,6 @@
                 }
             ],
             "time": "2024-11-21T10:39:51+00:00"
-        },
-        {
-            "name": "payment/payos",
-            "version": "dev-organize_webpage",
-            "dist": {
-                "type": "path",
-                "url": "packages/Payment/Payos",
-                "reference": "2c6f2e1e6b794641b2522eca92935cc37bab47f3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Payment\\Payos\\PayServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Payment\\Payos\\": "src/"
-                }
-            },
-            "description": "Payos Module",
-            "transport-options": {
-                "relative": true
-            }
         },
         {
             "name": "payos/payos",
@@ -10467,9 +10441,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "payment/payos": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
