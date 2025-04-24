@@ -3,45 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\PayOSService;
 
 class PaymentController extends Controller
 {
-    protected $payOS;
-
-    public function __construct(PayOSService $payOS)
+    public function handlePayOSWebhook(Request $request)
     {
-        $this->payOS = $payOS;
-    }
+        $body = json_decode($request->getContent(), true);
 
-    public function create()
-    {
-    $amount = 100000;
-    $orderCode = uniqid('ORD_');
-    $returnUrl = route('payment.success');
-    $cancelUrl = route('payment.cancel');
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return response()->json([
+                "error" => 1,
+                "message" => "Invalid JSON payload"
+            ], 400);
+        }
 
-    $payment = $this->payOS->createPayment($amount, $orderCode, $returnUrl, $cancelUrl);
+        // Handle webhook test
+        if (in_array($body["data"]["description"], ["Ma giao dich thu nghiem", "VQRIO123"])) {
+            return response()->json([
+                "error" => 0,
+                "message" => "Ok",
+                "data" => $body["data"]
+            ]);
+        }
 
-    // 🔍 Debug: dump the full response
-    \Log::info('PayOS response:', $payment);
-    dd($payment); // <-- stop here and see what PayOS returned
+        try {
+            $this->payOS->verifyPaymentWebhookData($body);
+        } catch (\Exception $e) {
+            return response()->json([
+                "error" => 1,
+                "message" => "Invalid webhook data",
+                "details" => $e->getMessage()
+            ], 400);
+        }
 
-    if (isset($payment['data']['qrCode'])) {
-        return view('payment.qr', ['qrCodeUrl' => $payment['data']['qrCode']]);
-    }
+        // Process webhook data
+        // ...
 
-    return redirect()->back()->with('error', 'Could not generate QR code.');
-    }
-
-
-    public function success()
-    {
-        return '✅ Payment was successful!';
-    }
-
-    public function cancel()
-    {
-        return '❌ Payment was cancelled.';
+        return response()->json([
+            "error" => 0,
+            "message" => "Ok",
+            "data" => $body["data"]
+        ]);
     }
 }

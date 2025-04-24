@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DrinkController;
 use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Setting;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +19,26 @@ Route::get('/setting', [Setting::class, 'setting'])->name('Setting');
 
 
 
-Route::get('/pay', [PaymentController::class, 'create'])->name('payment.create');
-Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
-Route::get('/payment/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+
+Route::get('/success.html', function () {
+    return view('success');
+});
+
+Route::get('/cancel.html', function () {
+    return view('cancel');
+});
+
+Route::post('/create-payment-link', [CheckoutController::class, 'createPaymentLink']);
+
+Route::prefix('/order')->group(function () {
+    Route::post('/create', [OrderController::class, 'createOrder']);
+    Route::get('/{id}', [OrderController::class, 'getPaymentLinkInfoOfOrder']);
+    Route::put('/{id}', [OrderController::class, 'cancelPaymentLinkOfOrder']);
+});
+
+Route::prefix('/payment')->group(function () { 
+    Route::post('/payos', [PaymentController::class, 'handlePayOSWebhook']);
+});
