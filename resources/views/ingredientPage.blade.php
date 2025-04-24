@@ -69,7 +69,7 @@
                 "name": {{ $drink }},
             };
             try {
-                const response = await fetch('https://25fe-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://abeb-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
