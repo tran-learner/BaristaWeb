@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 class CheckoutController extends Controller
 {
     public function createPaymentLink(Request $request)
-    {
+    {   
         $YOUR_DOMAIN = $request->getSchemeAndHttpHost();
         $data = [
             "orderCode" => intval(substr(strval(microtime(true) * 10000), -6)),
-            "amount" => 2000,
+            "amount" => ,
             "description" => "Drinking payment",
             "returnUrl" => $YOUR_DOMAIN . "/success",
             "cancelUrl" => $YOUR_DOMAIN . "/ingredients"
