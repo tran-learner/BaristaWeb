@@ -83,7 +83,7 @@
     "repositories": [
   {
     "type": "path",
-    "url": "packages/payment/payos"
+    "url": "packages/Payment/Payos"
   }
 ]
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "afa5334298cbf5f66d3e90c6ffac626a",
+    "content-hash": "d2e79ee000a1885169a08438900d856e",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3535,23 +3535,23 @@
             "version": "dev-organize_webpage",
             "dist": {
                 "type": "path",
-                "url": "packages/payment/payos",
-                "reference": "8f0b4b97b6ecf307fb1bf7604acd0832096fabe6"
+                "url": "packages/Payment/Payos",
+                "reference": "2c6f2e1e6b794641b2522eca92935cc37bab47f3"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "payment\\payos\\src\\BlogServiceProvider"
+                        "Payment\\Payos\\PayServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "payment\\payos\\": "src/"
+                    "Payment\\Payos\\": "src/"
                 }
             },
-            "description": "Pay Module",
+            "description": "Payos Module",
             "transport-options": {
                 "relative": true
             }
