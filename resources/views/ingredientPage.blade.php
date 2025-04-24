@@ -65,9 +65,6 @@
                 return acc;
             }, {});
             payload.State = 0;
-            payment={
-                "name": {{ $drink }},
-            };
             try {
                 const response = await fetch('https://abeb-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
