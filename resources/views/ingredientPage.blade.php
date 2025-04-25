@@ -66,7 +66,7 @@
             }, {});
             payload.State = 0;
             try {
-                const response = await fetch('https://abeb-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://67d1-2402-800-63b5-b58e-24a2-653-171e-715f.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
