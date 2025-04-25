@@ -11,7 +11,7 @@ class CheckoutController extends Controller
         $YOUR_DOMAIN = $request->getSchemeAndHttpHost();
         $data = [
             "orderCode" => intval(substr(strval(microtime(true) * 10000), -6)),
-            "amount" => ,
+            "amount" => 10000,
             "description" => "Drinking payment",
             "returnUrl" => $YOUR_DOMAIN . "/success",
             "cancelUrl" => $YOUR_DOMAIN . "/ingredients"
