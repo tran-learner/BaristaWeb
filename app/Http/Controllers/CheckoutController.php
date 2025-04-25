@@ -13,13 +13,15 @@ class CheckoutController extends Controller
         $YOUR_DOMAIN = $request->getSchemeAndHttpHost();
         $data = [
             "orderCode" => intval(substr(strval(microtime(true) * 10000), -6)),
-            "amount" => 2000,
-            // "amount" => $requestBody['Price']*1000 ?? 10000,
+            // "amount" => 2000,
+            "amount" => $requestBody['Price']*1000 ?? 10000,
             "description" => "Drinking payment " . $requestBody['Name'] ,
             "returnUrl" => $YOUR_DOMAIN . "/success",
             "cancelUrl" => $YOUR_DOMAIN . "/",
 
         ];
+        unset($requestBody['Price']);
+        unset($requestBody['Name']);
         // error_log($data['orderCode']);
         session(['paymentData' => $requestBody]);
         try {

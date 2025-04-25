@@ -30,17 +30,18 @@
         async function sendIngredientQuantity() {
             // Create payload from input values
             try {
-                const response = await fetch('https://67d1-2402-800-63b5-b58e-24a2-653-171e-715f.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://e875-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: drinkData
                 });
-                response.ok ? {window.location.href = '/'} : alert('Barista request receive error :((');
+                response.ok ? (window.location.href = '/') : alert('Barista request receive error :((');
             } catch (error) {
                 console.error('Fetch error:', error);
             }
         }
+        sendIngredientQuantity()
     });
 </script>
