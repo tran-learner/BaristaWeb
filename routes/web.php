@@ -19,10 +19,11 @@ Route::get('/setting', [Setting::class, 'setting'])->name('Setting');
 
 
 
-Route::get('/checkout', function () {
-    return view('checkout');
-});
+// Route::post('/checkout', function () {
+//     return view('checkout');
+// });
 
+Route::post('/checkout', [CheckoutController::class, 'createPaymentLink']);
 Route::get('/success', function () {
     return view('success');
 });

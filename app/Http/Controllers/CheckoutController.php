@@ -7,20 +7,26 @@ use Illuminate\Http\Request;
 class CheckoutController extends Controller
 {
     public function createPaymentLink(Request $request)
-    {   
+    {
+        $requestBody = $request->all();
+        // dd($requestBody['Price']);
         $YOUR_DOMAIN = $request->getSchemeAndHttpHost();
         $data = [
             "orderCode" => intval(substr(strval(microtime(true) * 10000), -6)),
-            "amount" => 10000,
-            "description" => "Drinking payment",
+            "amount" => $requestBody['Price']*1000 ?? 10000,
+            "description" => "Drinking payment " . $requestBody['Name'] ,
             "returnUrl" => $YOUR_DOMAIN . "/success",
-            "cancelUrl" => $YOUR_DOMAIN . "/ingredients"
+            "cancelUrl" => $YOUR_DOMAIN . "/ingredients",
+
         ];
-        error_log($data['orderCode']);
+        // error_log($data['orderCode']);
 
         try {
             $response = $this->payOS->createPaymentLink($data);
-            return redirect($response['checkoutUrl']);
+            return response()->json([
+                'checkoutUrl'=> $response['checkoutUrl']
+            ]);
+            // return response()->json($requestBody);
         } catch (\Throwable $th) {
             return $this->handleException($th);
         }

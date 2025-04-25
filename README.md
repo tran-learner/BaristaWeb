@@ -1,5 +1,6 @@
 ## install packages
 npm install tailwindcss @tailwindcss/vite
+cài thư viện payos
 
 ---------------------------------------------------------------------------------
 Cấu trúc project:

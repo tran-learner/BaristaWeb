@@ -3,7 +3,8 @@
     <div id="contentWrap" class="flex flex-row items-center justify-center w-full">
         <div id="ingListContainer"
             class="flex flex-col flex-wrap gap-4 justify-between sm:justify-between w-5/6 max-w-[360px] sm:max-w-full">
-            <h1 class="font-light text-2xl text-center text-gray-700 mb-7">Build your {{ $drink }}!</h1>
+            <h1 id="drink-name" data-name="{{ $drink }}" data-price="{{ $price[0] }}" class="font-light text-2xl
+                text-center text-gray-700 mb-7">Build your {{ $drink }}!</h1>
             @foreach ($ingredients as $ing)
                 <div class="flex items-center justify-center gap-5">
                     <label class="font-bold text-navy" for="{{ $ing . 'Input' }}">{{ $ing }}</label>
@@ -27,10 +28,11 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Khai báo object chứa thông tin nguyên liệu
-        const ingredients = ['Name','Coffee', 'Sugar', 'Tea', 'Milk','Price'];
+        const ingredients = ['Name', 'Coffee', 'Sugar', 'Tea', 'Milk', 'Price'];
 
         document.getElementById("submitBtn").onclick = async function() {
-            await sendIngredientQuantity();
+            // await sendIngredientQuantity();
+            await operatePayment()
         }
 
         // Event listener for the size buttons
@@ -45,7 +47,8 @@
                 document.getElementById(inputId).value = value;
 
                 // Remove green color from all buttons for this ingredient
-                const buttons = document.querySelectorAll(`.size-button[data-ing="${ingredient}"]`);
+                const buttons = document.querySelectorAll(
+                    `.size-button[data-ing="${ingredient}"]`);
                 buttons.forEach(b => {
                     b.style.backgroundColor = ''; // Reset to default background
                     b.style.color = ''; // Reset text color if you have changed it
@@ -57,7 +60,7 @@
             });
         });
 
-        async function sendIngredientQuantity() {
+        async function operatePayment() {
             // Create payload from input values
             const payload = ingredients.reduce((acc, ing) => {
                 const input = document.getElementById(`${ing}Input`);
@@ -65,36 +68,71 @@
                 return acc;
             }, {});
             payload.State = 0;
-            try {
-                const response = await fetch('https://67d1-2402-800-63b5-b58e-24a2-653-171e-715f.ngrok-free.app/pumphandle', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
+            const drinkName = document.getElementById('drink-name').getAttribute('data-name')
+            const price = document.getElementById('drink-name').getAttribute('data-price')
+            console.log(`price is ${price}`)
+            payload.Name = drinkName
+            payload.Price = price
+            console.log(payload)
+            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            console.log(token)
+            fetch('/checkout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': token
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(res => {
+                result = res.json()
+                return result
+            })
+            .then(data=>{
+                window.location.href = data.checkoutUrl
+            })
 
-                response.ok ? alert('Barista completed') : alert('Barista request receive error :((');
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
         }
+
+        // async function sendIngredientQuantity() {
+        //     // Create payload from input values
+        //     const payload = ingredients.reduce((acc, ing) => {
+        //         const input = document.getElementById(`${ing}Input`);
+        //         acc[ing.charAt(0).toUpperCase() + ing.slice(1)] = input ? input.value : 0;
+        //         return acc;
+        //     }, {});
+        //     payload.State = 0;
+        //     try {
+        //         const response = await fetch('https://67d1-2402-800-63b5-b58e-24a2-653-171e-715f.ngrok-free.app/pumphandle', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify(payload)
+        //         });
+
+        //         response.ok ? alert('Barista completed') : alert('Barista request receive error :((');
+        //     } catch (error) {
+        //         console.error('Fetch error:', error);
+        //     }
+        // }
     });
 </script>
 
 <style>
-.size-button {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-    border: 1px solid black;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
+    .size-button {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        border: 1px solid black;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
 
-.size-button:hover {
-    background-color: lightgreen; /* Light green on hover for better UX */
-}
+    .size-button:hover {
+        background-color: lightgreen;
+        /* Light green on hover for better UX */
+    }
 </style>
