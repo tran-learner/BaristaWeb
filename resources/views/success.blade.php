@@ -37,7 +37,7 @@
                     },
                     body: drinkData
                 });
-                response.ok ? alert('Barista completed') : alert('Barista request receive error :((');
+                response.ok ? {window.location.href = '/'} : alert('Barista request receive error :((');
             } catch (error) {
                 console.error('Fetch error:', error);
             }
