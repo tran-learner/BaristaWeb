@@ -6,6 +6,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Setting;
+use App\Http\Controllers\SuccessController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,9 +25,7 @@ Route::get('/setting', [Setting::class, 'setting'])->name('Setting');
 // });
 
 Route::post('/checkout', [CheckoutController::class, 'createPaymentLink']);
-Route::get('/success', function () {
-    return view('success');
-});
+Route::get('/success', [SuccessController::class, 'success']);
 
 Route::get('/cancel', function () {
     return view('cancel');

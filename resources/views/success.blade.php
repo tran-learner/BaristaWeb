@@ -18,6 +18,7 @@
             <a href="/" id="return-page-btn"
                 >Trở về trang Tạo Link thanh toán</a
             >
+            <p>{{ json_encode($paymentData) }}</p>
         </div>
     </body>
 </html>
