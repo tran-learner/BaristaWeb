@@ -12,7 +12,8 @@
                         {{-- <img src="{{ Vite::asset($drink['imagePath']) }}" alt=""
                             class="w-[160px] h-[150px] sm:w-[210px] sm:h-[180px]"> --}}
                         <img src="{{ asset($drink['imagePath']) }}" alt=""
-                            class="w-[140px] h-[130px] sm:w-[210px] sm:h-[180px]">
+                            class="w-[140px] h-[130px] sm:w-[210px] sm:h-[180px] opacity-clicked">
+                        <link rel="stylesheet" href="{{ asset('css/opacity_bt.css') }}">
                     </div>
 
                     <div class="flex-1">

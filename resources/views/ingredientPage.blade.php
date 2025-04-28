@@ -18,7 +18,8 @@
                 </div>
             @endforeach
             <div class="flex justify-center items-center w-full">
-                <button class="bg-lightblue px-10 py-2 w-fit text-white font-extrabold rounded-md mt-5"
+                <link rel="stylesheet" href="{{ asset('css/opacity_bt.css') }}">
+                <button class="bg-lightblue px-10 py-2 w-fit text-white font-extrabold rounded-md mt-5 opacity-clicked"
                     id="submitBtn">OK</button>
             </div>
         </div>
@@ -124,15 +125,19 @@
         width: 50px;
         height: 50px;
         margin: 10px;
-        border: 1px solid black;
+        border: 1px solid white;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .size-button:hover {
         background-color: lightgreen;
+        border: 1px lightgreen;
         /* Light green on hover for better UX */
     }
 </style>

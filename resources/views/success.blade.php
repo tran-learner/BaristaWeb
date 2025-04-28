@@ -8,8 +8,7 @@
                 Nếu có bất kỳ câu hỏi nào, hãy gửi email tới
                 <a href="mailto:support@payos.vn">support@payos.vn</a>
             </p>
-            <a href="/" id="return-page-btn"
-                >Trở về trang Tạo Link thanh toán</a>
+            <p style="">Payment successful. Your drink is being baristed</p>
             <p id = "drink-data" style="display:none">{{ json_encode($paymentData) }}</p>
         </div>
 @endsection
@@ -22,7 +21,7 @@
         async function sendIngredientQuantity() {
             // Create payload from input values
             try {
-                const response = await fetch('https://e875-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://a163-125-235-236-149.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
