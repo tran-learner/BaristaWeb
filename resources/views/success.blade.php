@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Thanh toán thành công</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
+@extends('welcome')
+@section('specifyContent')
         <div class="main-box">
             <h4 class="payment-titlte">
                 Thanh toán thành công. Cảm ơn bạn đã sử dụng payOS!
@@ -17,10 +10,9 @@
             </p>
             <a href="/" id="return-page-btn"
                 >Trở về trang Tạo Link thanh toán</a>
-            <p id = "drink-data">{{ json_encode($paymentData) }}</p>
+            <p id = "drink-data" style="display:none">{{ json_encode($paymentData) }}</p>
         </div>
-    </body>
-</html>
+@endsection
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
