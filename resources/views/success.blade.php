@@ -1,13 +1,6 @@
-@extends('welcome')
+@extends('generalTemp')
 @section('specifyContent')
         <div class="main-box">
-            <h4 class="payment-titlte">
-                Thanh toán thành công. Cảm ơn bạn đã sử dụng payOS!
-            </h4>
-            <p>
-                Nếu có bất kỳ câu hỏi nào, hãy gửi email tới
-                <a href="mailto:support@payos.vn">support@payos.vn</a>
-            </p>
             <p style="">Payment successful. Your drink is being baristed</p>
             <p id = "drink-data" style="display:none">{{ json_encode($paymentData) }}</p>
         </div>

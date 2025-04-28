@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('generalTemp')
 @section('specifyContent')
 <div id="pageTitle" class="flex flex-1 items-center justify-center min-h-[100px]">
     <h1 class="flex font-extrabold text-3xl text-navy"><pre>SETTING MACHINE

@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('generalTemp')
 @section('specifyContent')
 @section('title' , 'Drink List')
         <div class="main-box">

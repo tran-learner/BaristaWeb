@@ -1,6 +1,6 @@
-@extends('welcome')
+@extends('generalTemp')
 @section('specifyContent')
-@section('title' , 'Drink List')
+@section('background')
     <div id="contentWrap" class="flex flex-row items-center justify-center w-full">
         <div id="drinkListContainer"
             class="flex flex-wrap gap-4 justify-between sm:justify-between w-5/6 max-w-[360px] sm:max-w-full">

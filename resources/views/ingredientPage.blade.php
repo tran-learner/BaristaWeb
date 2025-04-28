@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('generalTemp')
 @section('specifyContent')
     <div id="contentWrap" class="flex flex-row items-center justify-center w-full">
         <div id="ingListContainer"
@@ -125,7 +125,6 @@
         width: 50px;
         height: 50px;
         margin: 10px;
-        border: 1px solid white;
         display: inline-flex;
         align-items: center;
         justify-content: center;
