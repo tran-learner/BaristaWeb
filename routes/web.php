@@ -13,11 +13,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/drinklist', function () {
-    // return view('welcome');
-    return redirect()->route('initDrinkList');
-});
-
 Route::get('/drinks', [DrinkController::class,'getDrinks'])->name('initDrinkList');
 Route::get('/ingredients', [IngredientController::class,'index'])->name('getIngredients');
 Route::get('/setting', [Setting::class, 'setting'])->name('Setting');

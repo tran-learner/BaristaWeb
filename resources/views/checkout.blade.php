@@ -1,6 +1,6 @@
 @extends('generalTemp')
 @section('specifyContent')
-@section('title' , 'Drink List')
+@section('background' , 'backgroundDrinkList')
         <div class="main-box">
             <div class="checkout">
                 <div class="product">

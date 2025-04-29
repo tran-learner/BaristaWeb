@@ -12,10 +12,29 @@
     <link rel="stylesheet" href="{{ asset('css/blur.css') }}">
 </head>
 <body>
+    <style>
+        .top-bar {
+            display: flex;
+            justify-content: center; /* Horizontally center the content */
+            width: 100%; /* Ensure it spans the entire width */
+            padding-top: 20px; /* Add some space at the top if needed */
+            padding-bottom: 20px; /* Add some space below if needed */
+        }
+        .logo-container {
+            height: 150px; /* Set the desired height */
+        }
+        .logo-container img {
+            max-height: 100%; /* Ensure the image doesn't exceed the container height */
+        }
+    </style>
+    <div class="top-bar">
+        <div class="logo-container">
+            <img src="https://yu.ctu.edu.vn/images/upload/article/2020/03/0305-logo-ctu.png" alt="CTU logo">
+        </div>
+    </div>
     <div class="background"></div>
     <div id="languageBtn" class="absolute border-1 border-gray-200 text-navy h-fit w-fit px-3 py-2 rounded-md right-2 top-2">EN</div>
     <div class="absolute left-2 top-2 flex gap-4">
-        <a id="backBtn" onclick="history.back()" class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md"><</a>
         <a id="setBtn" href="{{ route('Setting') }}" class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md">Setting</a>
     </div>
     <div class="centered-content">
@@ -25,16 +44,18 @@
 
     <style>
     .centered-content {
-        display: flex;          /* Use flexbox for centering */
-        flex-direction: column;  /* Stack items vertically by default */
-        justify-content: center;  /* Center content horizontally */
-        align-items: center;      /* Center content vertically */
-        min-height: 100vh;      /* Ensure full viewport height */
-        margin: 0;            /* Remove default body margins */
-        text-align: center;      /* Center text within items */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 190px); /* Adjust for the top bar height */
+        margin: 0;
+        text-align: center;
     }
     .centered-content h1 {
-        margin-bottom: 20px; /* Add space between heading and button */
+        margin-bottom: 20px;
+        font-size: 5rem;
+        font-weight: bold;
     }
 
     #submitBtn {
@@ -46,17 +67,18 @@
         cursor: pointer;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        font-size: 1.75rem;
     }
 
     #submitBtn:hover {
-        background-color: #0056b3;  /* Darker blue on hover */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+        background-color: #0056b3;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
     #submitBtn:active {
-        background-color: #004080;  /* Even darker blue on active */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow on active */
-        transform: translateY(1px); /* Simulate button press */
+        background-color: #004080;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transform: translateY(1px);
     }
     </style>
     <footer>
@@ -69,7 +91,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("submitBtn").onclick = async function() {
             // await sendIngredientQuantity();
-            window.location.href = '/drinklist';
+            await (window.location.href = '/drinks');
         }
-    }
+    });
 </script>

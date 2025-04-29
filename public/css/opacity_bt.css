@@ -1,4 +1,5 @@
 .opacity-clicked:hover {
+    cursor: pointer;
     opacity: 50%;
     /* Light green on hover for better UX */
 }

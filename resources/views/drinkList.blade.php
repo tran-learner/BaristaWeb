@@ -1,6 +1,6 @@
 @extends('generalTemp')
 @section('specifyContent')
-@section('background')
+@section('background', 'backgroundDrinkList')
     <div id="contentWrap" class="flex flex-row items-center justify-center w-full">
         <div id="drinkListContainer"
             class="flex flex-wrap gap-4 justify-between sm:justify-between w-5/6 max-w-[360px] sm:max-w-full">
@@ -12,7 +12,7 @@
                         {{-- <img src="{{ Vite::asset($drink['imagePath']) }}" alt=""
                             class="w-[160px] h-[150px] sm:w-[210px] sm:h-[180px]"> --}}
                         <img src="{{ asset($drink['imagePath']) }}" alt=""
-                            class="w-[140px] h-[130px] sm:w-[210px] sm:h-[180px] opacity-clicked">
+                            class="w-[150px] h-[130px] sm:w-[210px] sm:h-[180px] opacity-clicked">
                         <link rel="stylesheet" href="{{ asset('css/opacity_bt.css') }}">
                     </div>
 
