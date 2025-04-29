@@ -71,12 +71,10 @@
             payload.State = 0;
             const drinkName = document.getElementById('drink-name').getAttribute('data-name')
             const price = document.getElementById('drink-name').getAttribute('data-price')
-            console.log(`price is ${price}`)
             payload.Name = drinkName
             payload.Price = price
             console.log(payload)
             const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            console.log(token)
             fetch('/checkout', {
                 method: 'POST',
                 headers: {
@@ -87,12 +85,13 @@
             })
             .then(res => {
                 result = res.json()
+                console.log(result)
                 return result
             })
             .then(data=>{
+                // console.log(data)
                 window.location.href = data.checkoutUrl
             })
-
         }
 
         // async function sendIngredientQuantity() {
