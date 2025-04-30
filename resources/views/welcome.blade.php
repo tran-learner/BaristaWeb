@@ -74,12 +74,6 @@
         background-color: #0056b3;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
-
-    #submitBtn:active {
-        background-color: #004080;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        transform: translateY(1px);
-    }
     </style>
     <footer>
         <p>If you have any problem or feedback, please contact email: <a href="mailto:ng.tri.hoang2004ct@gmail.com">ng.tri.hoang2004ct@gmail.com</a> or phone number: <a href="tel:+84907208782">+84907208782</a></p>
