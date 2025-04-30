@@ -4,9 +4,9 @@
     <h1 class="flex font-extrabold text-3xl text-navy"><pre>SETTING MACHINE
         </pre></h1>
 </div>
-    <pre><br>   Cleaning machine       <button id = "clean" style="background-color: #0075FF; color: white; padding: 10px 50px; border: none; border-radius: 4px; cursor: pointer;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" class = "opacity-clicked">Clean</button></pre>
-    <pre><br>   Shutdown machine       <button id = "shut" style="background-color: #eb4934; color: white; padding: 10px 50px; border: none; border-radius: 4px; cursor: pointer;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" class = "opacity-clicked">Shutdown</button></pre>
-    <pre><br>   Restart machine        <button id = "restart" style="background-color: #c6eb34; color: white; padding: 10px 50px; border: none; border-radius: 4px; cursor: pointer;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" class = "opacity-clicked">Restart</button></pre>
+    <pre><br>   Cleaning machine       <button id = "clean" style="background-color: #0075FF" class = "opacity-clicked set_but">Clean</button></pre>
+    <pre><br>   Shutdown machine       <button id = "shut" style="background-color: #eb4934" class = "opacity-clicked set_but">Shutdown</button></pre>
+    <pre><br>   Restart machine        <button id = "restart" style="background-color: #c6eb34" class = "opacity-clicked set_but">Restart</button></pre>
     <link rel="stylesheet" href="{{ asset('css/opacity_bt.css') }}">
 </div>  
 @endsection
@@ -78,3 +78,14 @@
         }
     });
 </script>
+
+<style>
+    .set_but {
+        color: white;
+        padding: 10px 50px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+</style>

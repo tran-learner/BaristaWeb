@@ -2,4 +2,6 @@
     cursor: pointer;
     opacity: 50%;
     /* Light green on hover for better UX */
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
 }
