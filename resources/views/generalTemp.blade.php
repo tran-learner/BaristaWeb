@@ -31,6 +31,30 @@
     </div>
 </body>
 <footer>
-    <p>If you have any problem or feedback, please contact email: <a href="mailto:ng.tri.hoang2004ct@gmail.com">ng.tri.hoang2004ct@gmail.com</a> or phone number: <a href="tel:+84907208782">+84907208782</a></p>
+    <button id="contact_us">CONTACT US</button>
+    <style>
+        #contact_us {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        #contact_us:hover {
+            background-color: #45a049; /* Darker green */
+        }
+        #contact_us:active {
+            background-color: #3e8e41; /* Even darker green */
+            transform: translateY(2px);
+        }
+    </style>
 </footer>
 </html>
