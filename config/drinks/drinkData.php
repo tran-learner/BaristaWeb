@@ -4,31 +4,31 @@ return [
         [
             'name'=> 'Coffee',
             'ingredients'=> ['Coffee','Sugar'],
-            'imagePath'=> 'images/coffee.jpg',
+            'imagePath'=> 'images/drinks/coffee.jpg',
             'price'=>['12'],
         ],
         [
             'name'=> 'Milk Coffee',
             'ingredients'=> ['Coffee','Milk'],
-            'imagePath'=> 'images/milkcoffee.webp',
+            'imagePath'=> 'images/drinks/milkcoffee.webp',
             'price'=>['15'],
         ],
         [
             'name'=> 'Tea',
             'ingredients'=> ['Tea','Sugar'],
-            'imagePath'=> 'images/tea.png',
+            'imagePath'=> 'images/drinks/tea.png',
             'price'=>['10'],
         ],
         [
             'name'=> 'Milk Tea',
             'ingredients'=> ['Tea','Milk'],
-            'imagePath'=> 'images/milktea.png',
+            'imagePath'=> 'images/drinks/milktea.png',
             'price'=>['15'],
         ],
         [
             'name'=> 'Custom drinks',
             'ingredients'=> ['Coffee','Sugar','Tea','Milk'],
-            'imagePath'=> 'images/custom.png',
+            'imagePath'=> 'images/drinks/custom.png',
             'price'=>['15'],
         ]
     ]

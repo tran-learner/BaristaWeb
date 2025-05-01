@@ -31,7 +31,7 @@
     </div>
 </body>
 <footer>
-    <button id="contact_us">CONTACT US</button>
+    <button onclick="window.location.href='/teaminfo'" id="contact_us">CONTACT US</button>
     <style>
         #contact_us {
             position: fixed;
