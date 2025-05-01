@@ -29,12 +29,11 @@
             @yield('specifyContent')
         </div>
         <button onclick="window.location.href='/teamInfo'" id="contact_us">CONTACT US</button>
-        <link hrel="stylesheet" href="{{ asset('css/opacity_bt.css') }}">
+        <link rel="stylesheet" href="css/opacity_bt.css">
     </div>
     
 </body>
 <footer>
     <p>If you have any problem or feedback, please contact email: <a href="mailto:ng.tri.hoang2004ct@gmail.com">ng.tri.hoang2004ct@gmail.com</a> or phone number: <a href="tel:+84907208782">+84907208782</a></p>
-    
 </footer>
 </html>

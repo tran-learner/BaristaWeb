@@ -13,6 +13,7 @@ class MemberController extends Controller
         if (!$infoName){ abort(404, 'info not found');}
         $facebook = $infoName['facebook'];
         $telZalo= $infoName['tel/zalo'];
-        return view("memberPage",compact('facebook','info','telZalo'));
+        $imagePath = $infoName['imagePath'];
+        return view("memberPage",compact('facebook','info','telZalo','imagePath'));
     }
 }
