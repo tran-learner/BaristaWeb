@@ -13,7 +13,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/teaminfo', [InfoController::class,'getInfo']);
+
 Route::get('/drinks', [DrinkController::class,'getDrinks'])->name('initDrinkList');
+
 Route::get('/ingredients', [IngredientController::class,'index'])->name('getIngredients');
 Route::get('/setting', [Setting::class, 'setting'])->name('Setting');
 

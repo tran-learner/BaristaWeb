@@ -1,60 +1,60 @@
 <?php
 return [
-    'drinks' => [
+    'team_info' => [
         [
             'name'=> 'Nguyễn Trí Hoàng',
             'facebook'=> ['Coffee','Sugar'],
-            'Tel/Zalo' =>''
-            'imagePath'=> '',
+            'tel/zalo' =>'',
+            'imagePath'=> 'images/team_images/Hoang.jpg',
             'price'=>['12'],
         ],
         [
             'name'=> 'Hoàng Tuấn Anh',
             'facebook'=> ['Coffee','Milk'],
-            'Tel/Zalo' =>''
-            'imagePath'=> 'images/milkcoffee.webp',
+            'tel/zalo' =>'',
+            'imagePath'=> 'images/team_images/',
             'price'=>['15'],
         ],
         [
             'name'=> 'Phạm Chí Thịnh',
             'facebook'=> ['Tea','Sugar'],
-            'Tel/Zalo' =>''
-            'imagePath'=> 'images/tea.png',
+            'tel/zalo' =>'',
+            'imagePath'=> 'images/team_images/',
             'price'=>['10'],
         ],
         [
             'name'=> 'Trần Nguyên Hiền',
             'facebook'=> ['Tea','Milk'],
-            'Tel/Zalo' =>''
-            'imagePath'=> 'images/milktea.png',
+            'tel/zalo' =>'',
+            'imagePath'=> 'images/team_images/',
             'price'=>['15'],
         ],
         [
             'name'=> 'Võ Quốc Huy',
             'facebook'=> ['Coffee','Sugar','Tea','Milk'],
-            'Tel/Zalo' =>''
-            'imagePath'=> 'images/custom.png',
+            'tel/zalo' =>'',
+            'imagePath'=> 'images/team_images/',
             'price'=>['15'],
         ],
         [
             'name'=> 'Đoàn Ngọc Khả Vy',
             'facebook'=> ['Coffee','Sugar','Tea','Milk'],
-            'Tel/Zalo' =>''
-            'imagePath'=> 'images/custom.png',
+            'tel/zalo' =>'',
+            'imagePath'=> 'images/team_images/',
             'price'=>['15'],
         ],
         [
-            'name'=> 'Kim Trân',
+            'name'=> 'Nguyễn Thị Kim Trân',
             'facebook'=> ['Coffee','Sugar','Tea','Milk'],
-            'Tel/Zalo' =>''
-            'imagePath'=> 'images/custom.png',
+            'tel/zalo' =>'',
+            'imagePath'=> 'images/team_images/',
             'price'=>['15'],
         ],
         [
             'name'=> 'Nguyễn Hoàng Vũ',
             'facebook'=> ['Coffee','Sugar','Tea','Milk'],
-            'Tel/Zalo' =>''
-            'imagePath'=> 'images/custom.png',
+            'tel/zalo' =>'',
+            'imagePath'=> 'images/team_images/',
             'price'=>['15'],
         ],
     ]
