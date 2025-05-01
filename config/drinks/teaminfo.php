@@ -36,7 +36,7 @@ return [
         [
             'name'=> 'Võ Quốc Huy',
             'facebook'=> 'profile.php?id=100092557951607',
-            'tel/zalo' =>'',
+            'tel/zalo' =>'+84912528849',
             'imagePath'=> 'images/team_images/huy.jpg',
             'workplace'=>'CTU',
             'biography' => '',
