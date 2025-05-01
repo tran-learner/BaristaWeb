@@ -12,7 +12,7 @@ return [
         [
             'name'=> 'Hoàng Tuấn Anh',
             'facebook'=> 'anh.hoangtuan.5477',
-            'tel/zalo' =>'',
+            'tel/zalo' =>'+84338867817',
             'imagePath'=> 'images/team_images/anh.jpg',
             'workplace'=>'CTU',
             'biography' => '',
@@ -28,7 +28,7 @@ return [
         [
             'name'=> 'Trần Nguyên Hiền',
             'facebook'=> 'profile.php?id=100078640101228',
-            'tel/zalo' =>'',
+            'tel/zalo' =>'+84787962970',
             'imagePath'=> 'images/team_images/hien.jpg',
             'workplace'=>'CTU',
             'biography' => '',
