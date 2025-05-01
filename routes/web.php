@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DrinkController;
 use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
@@ -13,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/teaminfo', [InfoController::class,'getInfo']);
+Route::get('/teamInfo', [InfoController::class,'getInfo']);
+Route::get('/member', [MemberController::class,'index'])->name('getInfos');
 
 Route::get('/drinks', [DrinkController::class,'getDrinks'])->name('initDrinkList');
 

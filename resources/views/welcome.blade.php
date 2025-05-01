@@ -75,10 +75,12 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
     </style>
-    <footer>
-        <p>If you have any problem or feedback, please contact email: <a href="mailto:ng.tri.hoang2004ct@gmail.com">ng.tri.hoang2004ct@gmail.com</a> or phone number: <a href="tel:+84907208782">+84907208782</a></p>
-    </footer>
 </body>
+<footer>
+    <p>If you have any problem or feedback, please contact email: <a href="mailto:ng.tri.hoang2004ct@gmail.com">ng.tri.hoang2004ct@gmail.com</a> or phone number: <a href="tel:+84907208782">+84907208782</a></p>
+    <button onclick="window.location.href='/teamInfo'" id="contact_us">CONTACT US</button>
+    <link hrel="stylesheet" href="{{ asset('css/opacity_bt.css') }}">
+</footer>
 </html>
 
 <script>

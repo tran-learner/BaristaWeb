@@ -4,7 +4,7 @@ return [
         [
             'name'=> 'Nguyễn Trí Hoàng',
             'facebook'=> ['Coffee','Sugar'],
-            'tel/zalo' =>'',
+            'tel/zalo' =>'+84907208782',
             'imagePath'=> 'images/team_images/Hoang.jpg',
             'price'=>['12'],
         ],
