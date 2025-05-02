@@ -47,13 +47,15 @@
                     class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md">Setting</a>
     </div>
     <div id="wholePage" class="flex flex-col h-screen content items-center justify-center">
-        <div class="bg-white w-5/6 min-h-9/10 rounded-2xl h-fit mt-10">
+        <div class="bg-white w-5/6 min-h-9/10 rounded-2xl max-h-[90vh] overflow-auto mt-10">
+
             <div id="pageTitle" class="flex flex-1 items-center justify-center min-h-[150px] ">
                 <h1 class="flex font-extrabold text-3xl text-navy">AUTO BARISTA MACHINE</h1>
             </div>
             <div id="pageContent" class="flex-6">
                 @yield('specifyContent')
             </div>
+
         </div>
         <button onclick="window.location.href='/teamInfo'" id="contact_us">CONTACT US</button>
     </div>
