@@ -12,8 +12,8 @@ class MemberController extends Controller
         $infoName = collect($infos)->firstWhere('name', $info);
         if (!$infoName){ abort(404, 'info not found');}
         $facebook = $infoName['facebook'];
-        $telZalo= $infoName['tel/zalo'];
+        $email= $infoName['email'];
         $imagePath = $infoName['imagePath'];
-        return view("memberPage",compact('facebook','info','telZalo','imagePath'));
+        return view("memberPage",compact('facebook','info','email','imagePath'));
     }
 }

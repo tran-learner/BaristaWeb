@@ -4,7 +4,7 @@ return [
         [
             'name'=> 'Nguyễn Trí Hoàng',
             'facebook'=> 'ruanhuang123',
-            'tel/zalo' =>'+84907208782',
+            'email' =>'ng.tri.hoang2004ct@gmail.com',
             'imagePath'=> 'images/team_images/Hoang.jpg',
             'workplace'=>'CTU',
             'biography' => '',
@@ -12,7 +12,7 @@ return [
         [
             'name'=> 'Hoàng Tuấn Anh',
             'facebook'=> 'anh.hoangtuan.5477',
-            'tel/zalo' =>'+84338867817',
+            'email' =>'',
             'imagePath'=> 'images/team_images/anh.jpg',
             'workplace'=>'CTU',
             'biography' => '',
@@ -20,7 +20,7 @@ return [
         [
             'name'=> 'Phạm Chí Thịnh',
             'facebook'=> 'thinh.pham.960143',
-            'tel/zalo' =>'',
+            'email' =>'',
             'imagePath'=> 'images/team_images/thinh.jpg',
             'workplace'=>'CTU',
             'biography' => '',
@@ -28,7 +28,7 @@ return [
         [
             'name'=> 'Trần Nguyên Hiền',
             'facebook'=> 'profile.php?id=100078640101228',
-            'tel/zalo' =>'+84787962970',
+            'email' =>'',
             'imagePath'=> 'images/team_images/hien.jpg',
             'workplace'=>'CTU',
             'biography' => '',
@@ -36,7 +36,7 @@ return [
         [
             'name'=> 'Võ Quốc Huy',
             'facebook'=> 'profile.php?id=100092557951607',
-            'tel/zalo' =>'+84912528849',
+            'email' =>'',
             'imagePath'=> 'images/team_images/huy.jpg',
             'workplace'=>'CTU',
             'biography' => '',
@@ -44,7 +44,7 @@ return [
         [
             'name'=> 'Đoàn Ngọc Khả Vy',
             'facebook'=> 'DNKhaVy',
-            'tel/zalo' =>'',
+            'email' =>'',
             'imagePath'=> 'images/team_images/vy.jpg',
             'workplace'=>'CTU',
             'biography' => '',
@@ -52,7 +52,7 @@ return [
         [
             'name'=> 'Nguyễn Thị Kim Trân',
             'facebook'=> ['Coffee','Sugar','Tea','Milk'],
-            'tel/zalo' =>'',
+            'email' =>'nguyentran5304@gmail.com',
             'imagePath'=> 'images/team_images/',
             'workplace'=>'CTU',
             'biography' => '',
@@ -60,7 +60,7 @@ return [
         [
             'name'=> 'Nguyễn Hoàng Vũ',
             'facebook'=> ['Coffee','Sugar','Tea','Milk'],
-            'tel/zalo' =>'',
+            'email' =>'',
             'imagePath'=> 'images/team_images/',
             'workplace'=>'CTU',
             'biography' => '',

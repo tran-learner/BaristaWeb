@@ -8,6 +8,9 @@ class InfoController extends Controller
 {
     public function getInfo(){
         $infos = config('drinks.teaminfo')['team_info'];
-        return view('teamInfo', compact('infos'));
+        $facebook = $infos['facebook'];
+        $email= $infos['email'];
+        $imagePath = $infos['imagePath'];
+        return view('teamInfo', compact('infos','facebook','email','imagePath'));
     }
 }

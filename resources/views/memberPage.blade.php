@@ -7,7 +7,7 @@
                 text-center text-gray-700 mb-7">Infomation about {{ $info }}</h1>
             <img src="{{ asset($imagePath) }}" alt="Image of {{ $info }}" class="w-full h-auto mb-4 rounded-lg shadow-md">
             <a href="{{ asset('https://www.facebook.com/' .$facebook) }}" target="blank"><img src="images/app_icon/facebook.png" alt="Facebook" ></a>
-            <a href="{{ asset('tel:+' .$telZalo) }}" ><img src="images/app_icon/zalo.png" alt="Tel/Zalo" ></a>
+            <a href="{{ asset('mailto:' .$email) }}" ><img src="images/app_icon/email.png" alt="Email" ></a>
         </div>
     </div>
 @endsection

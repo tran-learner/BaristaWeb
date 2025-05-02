@@ -6,18 +6,19 @@
         class="flex flex-wrap gap-4 justify-between sm:justify-between w-5/6 max-w-[360px] sm:max-w-full">
         @foreach ($infos as $info)
             <a href="{{ route('getInfos', ['info' => $info['name']]) }}" id="infoSelector"
-                class="flex flex-col py-3 my-3 rounded-2xl shadow-md bg-white text-gray-800 w-[160px] sm:w-[210px] hover:shadow-lg transition">
+                class="flex flex-col py-3 my-3 rounded-2xl shadow-md bg-white text-gray-800 w-[160px] sm:w-[210px] hover:shadow-lg transition opacity-clicked">
 
                 <div id="imgContainer" class="flex-4">
                     {{-- <img src="{{ Vite::asset($drink['imagePath']) }}" alt=""
                             class="w-[160px] h-[150px] sm:w-[210px] sm:h-[180px]"> --}}
                     <img src="{{ asset($info['imagePath']) }}" alt=""
-                        class="w-[150px] h-[130px] sm:w-[210px] sm:h-[180px] opacity-clicked">
+                        class="w-[150px] h-[130px] sm:w-[210px] sm:h-[180px]">
                     <link rel="stylesheet" href="{{ asset('css/opacity_bt.css') }}">
                 </div>
 
                 <div class="flex-1">
-                    <h1 id="drinkName" class="font-bold text-center text-gray-700">{{ $info['name'] }}</h1>
+                    <h1 id="drinkName" class="font-bold text-center text-gray-700">{{ $info['name'] }}<br><a href="{{ asset('https://www.facebook.com/' .$facebook) }}" target="blank"><img src="images/app_icon/facebook.png" alt="Facebook" ></a>
+                        <a href="{{ asset('mailto:' .$email) }}" ><img src="images/app_icon/email.png" alt="Email" ></a></h1>
                 </div>
 
             </a>
