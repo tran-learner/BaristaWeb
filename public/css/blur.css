@@ -1,5 +1,5 @@
 .background {
-    background: green; /* or external image URL */
+    background: url('../images/CTU.jpeg'); /* or external image URL */
     background-size: cover;
     background-position: center;
     filter: blur(0px);

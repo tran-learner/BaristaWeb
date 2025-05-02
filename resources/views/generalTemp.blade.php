@@ -30,14 +30,17 @@
 
         #contact_us {
             /* Adjust styling for the contact button as needed */
-            margin-top: 20px; /* Add some space above the button */
+            margin-top: 20px;
+            /* Add some space above the button */
             padding: 10px 20px;
-            background-color: #007bff; /* Example color */
+            background-color: #007bff;
+            /* Example color */
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            z-index: 1; /* Ensure it's above the background */
+            z-index: 1;
+            /* Ensure it's above the background */
         }
     </style>
 </head>
@@ -52,12 +55,15 @@
                 <a id="setBtn" href="{{ route('Setting') }}"
                     class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md">Setting</a>
     </div>
-    <div id="wholePage" class="flex flex-col items-center"> <div class="bg-white w-5/6 rounded-2xl mt-10"> <div id="pageTitle" class="flex flex-1 items-center justify-center min-h-[150px] ">
+    <div id="wholePage" class="flex flex-col items-center">
+        <div class="bg-white w-5/6 rounded-2xl mt-10 opacity-97">
+            <div id="pageTitle" class="flex flex-1 items-center justify-center min-h-[150px] ">
                 <h1 class="flex font-extrabold text-3xl text-navy">AUTO BARISTA MACHINE</h1>
             </div>
             <div id="pageContent" class="flex-6">
                 @yield('specifyContent')
             </div>
+            <br>
         </div>
         <button onclick="window.location.href='/teamInfo'" id="contact_us">CONTACT US</button>
     </div>

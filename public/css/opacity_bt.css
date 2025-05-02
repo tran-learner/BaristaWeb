@@ -11,7 +11,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #4CAF50; /* Green */
+    background-color: #0075FF; /* Green */
     border: none;
     color: white;
     text-align: center;
@@ -24,9 +24,9 @@
 
 #contact_us:hover {
     cursor: pointer;
-    background-color: #45a049; /* Darker green */
+    background-color: #0056b3; /* Darker green */
 }
 #contact_us:active {
-    background-color: #3e8e41; /* Even darker green */
+    background-color: #0056b3; /* Even darker green */
     transform: translateY(1px);
 }

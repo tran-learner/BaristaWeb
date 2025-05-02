@@ -8,6 +8,8 @@
     <pre><br>   Shutdown machine       <button id = "shut" style="background-color: #eb4934" class = "opacity-clicked set_but">Shutdown</button></pre>
     <pre><br>   Restart machine        <button id = "restart" style="background-color: #c6eb34" class = "opacity-clicked set_but">Restart</button></pre>
     <link rel="stylesheet" href="{{ asset('css/opacity_bt.css') }}">
+    <br>
+    <div class="h-150"></div>
 </div>  
 @endsection
 

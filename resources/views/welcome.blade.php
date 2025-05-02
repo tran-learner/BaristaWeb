@@ -47,7 +47,7 @@
             style="position: fixed">Setting</a>
     </div>
     <div class="flex items-center justify-center">
-        <div class="bg-white w-5/6 min-h-9/10 rounded-2xl h-fit mt-50">
+        <div class="bg-white w-5/6 min-h-9/10 rounded-2xl h-fit mt-50 opacity-95">
             <div class="top-bar">
                 <div class="logo-container">
                     <img src="https://yu.ctu.edu.vn/images/upload/article/2020/03/0305-logo-ctu.png" alt="CTU logo">
