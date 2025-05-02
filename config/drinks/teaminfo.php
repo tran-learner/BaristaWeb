@@ -51,7 +51,7 @@ return [
         ],
         [
             'name'=> 'Nguyễn Thị Kim Trân',
-            'facebook'=> ['Coffee','Sugar','Tea','Milk'],
+            'facebook'=> '',
             'email' =>'nguyentran5304@gmail.com',
             'imagePath'=> 'images/team_images/',
             'workplace'=>'CTU',
@@ -59,7 +59,7 @@ return [
         ],
         [
             'name'=> 'Nguyễn Hoàng Vũ',
-            'facebook'=> ['Coffee','Sugar','Tea','Milk'],
+            'facebook'=> '',
             'email' =>'',
             'imagePath'=> 'images/team_images/',
             'workplace'=>'CTU',

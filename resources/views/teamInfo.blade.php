@@ -17,8 +17,8 @@
                 </div>
 
                 <div class="flex-1">
-                    <h1 id="drinkName" class="font-bold text-center text-gray-700">{{ $info['name'] }}<br><a href="{{ asset('https://www.facebook.com/' .$facebook) }}" target="blank"><img src="images/app_icon/facebook.png" alt="Facebook" ></a>
-                        <a href="{{ asset('mailto:' .$email) }}" ><img src="images/app_icon/email.png" alt="Email" ></a></h1>
+                    <h1 id="drinkName" class="font-bold text-center text-gray-700">{{ $info['name'] }}<br><a href="{{ asset('https://www.facebook.com/' .$info['facebook']) }}" target="blank"><img src="images/app_icon/facebook.png" alt="Facebook" ></a>
+                        <a href="{{ asset('mailto:' .$info['email']) }}" ><img src="images/app_icon/email.png" alt="Email" ></a></h1>
                 </div>
 
             </a>
