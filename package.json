@@ -3,7 +3,7 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "nodemon --watch payOS.js"
+        "dev": "vite"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.1.4",

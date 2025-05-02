@@ -33,9 +33,9 @@
         </div>
     </div>
     <div class="background"></div>
-    <div id="languageBtn" class="absolute border-1 border-gray-200 text-navy h-fit w-fit px-3 py-2 rounded-md right-2 top-2">EN</div>
+    <div id="languageBtn" class="absolute border-1 border-gray-200 text-navy h-fit w-fit px-3 py-2 rounded-md right-2 top-2" style="position:fixed">EN</div>
     <div class="absolute left-2 top-2 flex gap-4">
-        <a id="setBtn" href="{{ route('Setting') }}" class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md">Setting</a>
+        <a id="setBtn" href="{{ route('Setting') }}" class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md" style="position: fixed">Setting</a>
     </div>
     <div class="centered-content">
         <h1 class="inline-block">WELCOME TO AUTO BARISTA MACHINE</h1>
