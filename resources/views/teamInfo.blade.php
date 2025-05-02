@@ -15,12 +15,10 @@
                         class="w-[150px] h-[130px] sm:w-[210px] sm:h-[180px]">
                     <link rel="stylesheet" href="{{ asset('css/opacity_bt.css') }}">
                 </div>
-
                 <div class="flex-1">
-                    <h1 id="drinkName" class="font-bold text-center text-gray-700">{{ $info['name'] }}<br><a href="{{ asset('https://www.facebook.com/' .$info['facebook']) }}" target="blank"><img src="images/app_icon/facebook.png" alt="Facebook" class=""></a>
-                        <a href="{{ asset('mailto:' .$info['email']) }}" ><img src="images/app_icon/email.png" alt="Email" ></a></h1>
+                    <h1 id="drinkName" class="font-bold text-center text-gray-700">{{ $info['name'] }}<br><a href="{{ asset('https://www.facebook.com/' .$info['facebook']) }}" target="blank"><img src="images/app_icon/facebook.png" alt="Facebook" class="w-[35px]"></a>
+                        <a href="{{ asset('mailto:' .$info['email']) }}" ><img src="images/app_icon/email.png" alt="Email" class="w-[35px]"></a></h1>
                 </div>
-
             </a>
         @endforeach
     </div>
