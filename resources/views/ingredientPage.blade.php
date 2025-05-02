@@ -3,15 +3,15 @@
     <div id="contentWrap" class="flex flex-row items-center justify-center w-full">
         <div id="ingListContainer"
             class="flex flex-col flex-wrap gap-4 justify-between sm:justify-between w-5/6 max-w-[360px] sm:max-w-full">
-            <h1 id="drink-name" data-name="{{ $drink }}" data-price="{{ $price[0] }}" class="font-light text-2xl
+            <h1 id="drink-name" data-name="{{ $drink }}" data-price="{{ $price[0] }}" class="font-light text-3xl
                 text-center text-gray-700 mb-7">Build your {{ $drink }}</h1>
             @foreach ($ingredients as $ing)
                 <div class="flex items-center justify-center gap-5">
-                    <label class="font-bold text-navy" for="{{ $ing . 'Input' }}">{{ $ing }}</label>
+                    <label class="font-bold text-navy text-xl" for="{{ $ing . 'Input' }}">{{ $ing }}</label>
                     <div class="flex gap-2">
-                        <button class="size-button opacity-clicked" data-ing="{{ $ing }}" data-value="50">S</button>
-                        <button class="size-button opacity-clicked" data-ing="{{ $ing }}" data-value="100">M</button>
-                        <button class="size-button opacity-clicked" data-ing="{{ $ing }}" data-value="150">L</button>
+                        <button class="size-button text-xl opacity-clicked" data-ing="{{ $ing }}" data-value="50">S</button>
+                        <button class="size-button text-xl opacity-clicked" data-ing="{{ $ing }}" data-value="100">M</button>
+                        <button class="size-button text-xl opacity-clicked" data-ing="{{ $ing }}" data-value="150">L</button>
                     </div>
                     <input type="hidden" id="{{ $ing . 'Input' }}" name="{{ $ing }}" value="0">
                     <output id="{{ $ing . 'Output' }}">0</output>

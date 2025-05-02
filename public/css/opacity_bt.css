@@ -23,6 +23,7 @@
 }
 
 #contact_us:hover {
+    cursor: pointer;
     background-color: #45a049; /* Darker green */
 }
 #contact_us:active {
