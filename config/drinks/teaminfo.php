@@ -7,6 +7,7 @@ return [
             'email' =>'ng.tri.hoang2004ct@gmail.com',
             'imagePath'=> 'images/team_images/Hoang.jpg',
             'workplace'=>'CTU',
+            'position'=>'Director',
             'biography' => '',
         ],
         [
@@ -15,6 +16,7 @@ return [
             'email' =>'',
             'imagePath'=> 'images/team_images/anh.jpg',
             'workplace'=>'CTU',
+            'position'=>'Founder',
             'biography' => '',
         ],
         [
@@ -23,6 +25,7 @@ return [
             'email' =>'',
             'imagePath'=> 'images/team_images/thinh.jpg',
             'workplace'=>'CTU',
+            'position'=>'Technical manager',
             'biography' => '',
         ],
         [
@@ -31,6 +34,7 @@ return [
             'email' =>'',
             'imagePath'=> 'images/team_images/hien.jpg',
             'workplace'=>'CTU',
+            'position'=>'Technical manager',
             'biography' => '',
         ],
         [
@@ -39,6 +43,7 @@ return [
             'email' =>'',
             'imagePath'=> 'images/team_images/huy.jpg',
             'workplace'=>'CTU',
+            'position'=>'Mechanical manager',
             'biography' => '',
         ],
         [
@@ -47,6 +52,7 @@ return [
             'email' =>'',
             'imagePath'=> 'images/team_images/vy.jpg',
             'workplace'=>'CTU',
+            'position'=>'Marketing Manager',
             'biography' => '',
         ],
         [
@@ -55,6 +61,7 @@ return [
             'email' =>'nguyentran5304@gmail.com',
             'imagePath'=> 'images/team_images/',
             'workplace'=>'CTU',
+            'position'=>'Face ID technican',
             'biography' => '',
         ],
         [
@@ -63,6 +70,7 @@ return [
             'email' =>'',
             'imagePath'=> 'images/team_images/',
             'workplace'=>'CTU',
+            'position'=>'Supporter',
             'biography' => '',
         ],
     ]
