@@ -11,7 +11,7 @@
                 <a href="{{ route('getInfos', ['info' => $info['name']]) }}" class="flex flex-col items-center opacity-clicked">
                     <img src="{{ asset($info['imagePath']) }}" alt=""
                         class="w-full h-[150px] sm:h-[250px] rounded-t-2xl">
-                    <h1 id="drinkName" class="font-bold text-center text-gray-700 py-2">{{ $info['name'] }}</h1>
+                    <h1 id="drinkName" class="font-bold text-center text-gray-700 py-2 text-xl">{{ $info['name'] }}<br>{{ $info['position'] }}</h1>
                 </a>
                 <div class="flex justify-center py-2">
                     <a href="https://www.facebook.com/{{ $info['facebook'] }}" target="blank"><img
