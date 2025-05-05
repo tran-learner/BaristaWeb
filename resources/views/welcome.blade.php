@@ -58,6 +58,8 @@
                 <h1 class="inline-block">WELCOME TO AUTO BARISTA MACHINE</h1>
                 <button class="bg-lightblue px-10 py-2 w-fit text-white font-extrabold rounded-md mt-5 opacity-clicked"
                     id="submitBtn">START</button>
+                <button class="bg-lightblue px-10 py-2 w-fit text-white font-extrabold rounded-md mt-5 opacity-clicked"
+                    id="submitBtn"><img src="images/app_icon/micro.png" class="h-[30px]"></button>
             </div>
 
             <style>
