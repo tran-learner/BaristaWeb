@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class VoiceController extends Controller
 {
-    //
+    public function voiceOrder(Request $request){
+        
+    }
 }

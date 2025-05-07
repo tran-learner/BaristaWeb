@@ -5,6 +5,7 @@ use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\VoiceController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Setting;
@@ -32,10 +33,7 @@ Route::get('/setting', [Setting::class, 'setting'])->name('Setting');
 Route::post('/checkout', [CheckoutController::class, 'createPaymentLink']);
 Route::get('/success', [SuccessController::class, 'success']);
 
-Route::get('/cancel', function () {
-    return view('cancel');
-});
-
+Route::get('/voice', [VoiceController::class, 'voiceOrder'])->name('VoiceOrder');
 
 Route::get('/create-payment-link', [CheckoutController::class, 'createPaymentLink']);
 
