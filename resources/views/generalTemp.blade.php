@@ -46,6 +46,15 @@
 </head>
 
 <body>
+    {{-- <div id="overlay" class="bg-gray-700/75 w-screen h-screen fixed z-50 flex items-center justify-center backdrop-blur-sm hidden">
+        <div id="suggestFrame" class="w-1/2 h-1/2 bg-white rounded-lg flex flex-col overflow-hidden">
+            <p class="text-lg flex-3" id="suggestString"></p>
+            <div class="flex-1 items-center gap-5 justify-center flex">
+                <a id="okayBtn" class="bg-gray-300 text-white p-3 rounded-md">Maybe no...</a>
+                <button id="noBtn" class="bg-navy text-white p-3 px-7 rounded-md">Okay!</button>
+            </div>
+        </div>
+    </div> --}}
     <div class="background"></div>
     <div id="languageBtn" class="border-1 border-gray-200 text-navy h-fit w-fit px-3 py-2 rounded-md">EN</div>
     <div class="fixed-buttons">
