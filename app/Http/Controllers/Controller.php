@@ -15,12 +15,13 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $this->payOS = new PayOS(
-            env("PAYOS_CLIENT_ID"),
-            env("PAYOS_API_KEY"),
-            env("PAYOS_CHECKSUM_KEY")
+        $this->payos = new PayOS(
+            config('payos.client_id'),
+            config('payos.api_key'),
+            config('payos.checksum_key')
         );
     }
+
 
     protected function handleException(\Throwable $th)
     {
