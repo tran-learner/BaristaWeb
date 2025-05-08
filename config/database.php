@@ -112,6 +112,18 @@ return [
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
+        'supabase' => [
+            'driver' => env('DB_SUPABASE_CONNECTION', 'pgsql'),
+            'host' => env('DB_SUPABASE_HOST'),
+            'port' => env('DB_SUPABASE_PORT'),
+            'database' => env('DB_SUPABASE_DATABASE'),
+            'username' => env('DB_SUPABASE_USERNAME'),
+            'password' => env('DB_SUPABASE_PASSWORD'),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'require',
+        ],
 
     ],
 
@@ -148,7 +160,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
             'persistent' => env('REDIS_PERSISTENT', false),
         ],
 

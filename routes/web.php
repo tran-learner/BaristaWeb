@@ -30,7 +30,7 @@ Route::get('/setting', [Setting::class, 'setting'])->name('Setting');
 //     return view('checkout');
 // });
 
-Route::get('/checkout', [CheckoutController::class, 'createPaymentLink']);
+Route::post('/checkout', [CheckoutController::class, 'createPaymentLink']);
 Route::get('/success', [SuccessController::class, 'success']);
 
 Route::get('/voice', [VoiceController::class, 'voiceOrder'])->name('VoiceOrder');
