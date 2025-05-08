@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -113,12 +113,12 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
         'supabase' => [
-            'driver' => env('DB_SUPABASE_CONNECTION', 'pgsql'),
-            'host' => env('DB_SUPABASE_HOST'),
-            'port' => env('DB_SUPABASE_PORT'),
-            'database' => env('DB_SUPABASE_DATABASE'),
-            'username' => env('DB_SUPABASE_USERNAME'),
-            'password' => env('DB_SUPABASE_PASSWORD'),
+            'driver' => env('DB_CONNECTION', 'pgsql'),
+            'host' => env('DB_HOST'),
+            'port' => env('DB_PORT'),
+            'database' => env('DB_DATABASE'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
