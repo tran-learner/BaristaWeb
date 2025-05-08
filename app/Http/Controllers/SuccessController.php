@@ -15,5 +15,21 @@ class SuccessController extends Controller
         } else {
             return redirect('/');
         }
+
+        // Get the orderCode from the URL
+        $orderCode = $request->query('orderDB');
+
+        // Retrieve the order data from the session
+        $orderData = session($orderDB);
+
+        if (!$orderData) {
+            return redirect('/')->with('error', 'Order not found or already processed.');
+        }
+
+        // Save to Supabase
+        Order::create($orderData);
+
+        // Clear the session data for this order
+        session()->forget($orderCode);
     }
 }
