@@ -13,7 +13,8 @@
         {{-- bg-black --}}
         ">
         @foreach ($drinks as $drink)
-            <a href="{{ route('getIngredients', ['drink' => $drink['name']]) }}" id="drinkSelector"
+            {{-- <a href="{{ route('getIngredients', ['drink' => $drink['name']]) }}" id="drinkSelector" --}}
+            <a href="{{ route('getIngredients', ['drink' => $drink['name']]) }}" id="{{ $drink['name'] }}"
                 class="flex flex-col py-10 my-0 rounded-2xl shadow-md bg-white text-gray-800 w-[160px] sm:w-[350px] opacity-clicked items-center">
                 <div id="imgContainer" class="flex-4">
                     {{-- <img src="{{ Vite::asset($drink['imagePath']) }}" alt=""
@@ -39,11 +40,12 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("suggestBtn").onclick = async function() {
-            console.log('click')
             const customer = await predictFace()
-            const suggestString = handleSuggestString(customer)
-            console.log(suggestString)
-            document.getElementById("suggestString").textContent = suggestString
+            const suggestResult = handleSuggestString(customer)
+            console.log(suggestResult)
+            const pElement = document.getElementById("suggestString").textContent = suggestString
+            pElement.textContent = suggestResult.suggestString
+            pElement.dataset.drink = suggestResult.drinkName
             document.getElementById("overlay").classList.remove("hidden");
         }
 
@@ -66,26 +68,45 @@
         }
 
         function handleSuggestString(customer) {
-            let suggestString
+            let suggestString, drinkName
             const male30 = (customer.gender == 0 && customer.age >= 30)
             const maleUnder30 = (customer.gender == 0 && customer.age < 30)
             const female30 = (customer.gender == 1 && customer.age > 30)
             const femaleUnder30 = (customer.gender == 0 && customer.age < 30)
             if (male30) {
+                drinkName = 'Coffee'
                 suggestString =
-                    `Looks like a gentle man around ${customer.age}0s out there, would you like to try our black coffee?`
+                    `Looks like a gentle man around ${customer.age}0s out there, `
             }
             if (maleUnder30) {
+                drinkName = 'Milk Coffee'
                 suggestString =
-                    `Looks like a gentle man around ${customer.age}0s out there, would you like to try our milk coffee?`
+                    `Looks like a gentle man around ${customer.age}0s out there, `
             }
             if (female30) {
+                drinkName = 'Tea'
                 suggestString =
-                    `Looks like a beautiful lady around ${customer.age}0s out there, would you like to try our iced tea?`
+                    `Looks like a beautiful lady around ${customer.age}0s out there, `
             } else {
-                suggestString = `Looks like a little girl out there, would you like to try our milk tea?`
+                drinkName = 'Milk Tea'
+                suggestString = `Looks like a little girl out there, `
             }
-            return suggestString
+            suggestString += `would you like to try our ${drinkName}?`
+            const obj = {
+                drinkName: drinkName,
+                suggestString: suggestString
+            }
+            return obj
+        }
+
+        document.getElementById("okayBtn").onclick = function() {
+            console.log('click')
+            const drinkName = document.getElementById('suggestString').dataset.drink
+            document.getElementById(drinkName).click()
+        }
+
+        document.getElementById("noBtn").onclick = function() {
+            document.getElementById("overlay").classList.add("hidden")
         }
     })
 </script>
