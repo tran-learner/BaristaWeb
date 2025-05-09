@@ -55,7 +55,7 @@
                 console.log(prediction)
                 var age, gender
                 age = prediction.age
-                gender = prediction.gender > 0.5 ? 1 : 0
+                gender = prediction.gender >= 0.6 ? 1 : 0
                 const obj = {
                     age: age,
                     gender: gender
@@ -70,7 +70,7 @@
             let suggestString, drinkName
             const male30 = (customer.gender == 0 && customer.age >= 3)
             const maleUnder30 = (customer.gender == 0 && customer.age < 3)
-            const female30 = (customer.gender == 1 && customer.age > 3)
+            const female30 = (customer.gender == 1 && customer.age >= 3)
             const femaleUnder30 = (customer.gender == 0 && customer.age < 3)
             if (male30) {
                 drinkName = 'Coffee'
