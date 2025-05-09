@@ -42,7 +42,6 @@
         document.getElementById("suggestBtn").onclick = async function() {
             const customer = await predictFace()
             const suggestResult = handleSuggestString(customer)
-            console.log(suggestResult)
             const pElement = document.getElementById("suggestString").textContent = suggestString
             pElement.textContent = suggestResult.suggestString
             pElement.dataset.drink = suggestResult.drinkName
@@ -69,21 +68,21 @@
 
         function handleSuggestString(customer) {
             let suggestString, drinkName
-            const male30 = (customer.gender == 0 && customer.age >= 30)
-            const maleUnder30 = (customer.gender == 0 && customer.age < 30)
-            const female30 = (customer.gender == 1 && customer.age > 30)
-            const femaleUnder30 = (customer.gender == 0 && customer.age < 30)
+            const male30 = (customer.gender == 0 && customer.age >= 3)
+            const maleUnder30 = (customer.gender == 0 && customer.age < 3)
+            const female30 = (customer.gender == 1 && customer.age > 3)
+            const femaleUnder30 = (customer.gender == 0 && customer.age < 3)
             if (male30) {
                 drinkName = 'Coffee'
                 suggestString =
                     `Looks like a gentle man around ${customer.age}0s out there, `
             }
-            if (maleUnder30) {
+            else if (maleUnder30) {
                 drinkName = 'Milk Coffee'
                 suggestString =
                     `Looks like a gentle man around ${customer.age}0s out there, `
             }
-            if (female30) {
+            else if (female30) {
                 drinkName = 'Tea'
                 suggestString =
                     `Looks like a beautiful lady around ${customer.age}0s out there, `
