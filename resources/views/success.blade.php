@@ -1,7 +1,8 @@
 @extends('generalTemp')
 @section('specifyContent')
         <div class="main-box">
-            <p style="">Payment successful. Your drink is being baristed</p>
+            <div class="centered-content">
+                <h1 class="inline-block">Payment successful. Your drink is being baristed</h1>
             <p id = "drink-data" style="display:none">{{ json_encode($paymentData) }}</p>
         </div>
 @endsection

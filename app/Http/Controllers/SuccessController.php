@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class SuccessController extends Controller
@@ -9,18 +10,12 @@ class SuccessController extends Controller
     //
     public function success(Request $request)
     {
-        $paymentData = session('paymentData');
-        if ($paymentData) {
-            return view('success', ['paymentData' => $paymentData]);
-        } else {
-            return redirect('/');
-        }
 
         // Get the orderCode from the URL
         $orderCode = $request->query('orderDB');
 
         // Retrieve the order data from the session
-        $orderData = session($orderDB);
+        $orderData = session('orderDB');
 
         if (!$orderData) {
             return redirect('/')->with('error', 'Order not found or already processed.');
@@ -29,7 +24,11 @@ class SuccessController extends Controller
         // Save to Supabase
         Order::create($orderData);
 
-        // Clear the session data for this order
-        session()->forget($orderCode);
+        $paymentData = session('paymentData');
+        if ($paymentData) {
+            return view('success', ['paymentData' => $paymentData]);
+        } else {
+            return redirect('/');
+        }
     }
 }
