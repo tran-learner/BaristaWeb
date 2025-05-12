@@ -21,7 +21,7 @@
         Sugar: 2160,
         State: 0,
     }
-    let ngrokURL='https://a163-125-235-236-149.ngrok-free.app/pumphandle'
+    let ngrokURL='https://32f2-125-235-236-149.ngrok-free.app/pumphandle'
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("clean").onclick = async function() {await sendCleaning();}
         async function sendCleaning() {
