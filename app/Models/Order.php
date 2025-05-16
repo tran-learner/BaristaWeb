@@ -5,16 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Drlist extends Model
-{
-    use HasFactory;
-
-    // If your table is 'your_schema.your_table'
-    protected $connection = 'supabase';
-    protected $table = 'DRINK_DATA'; // Specify schema and table
-
-}
-
 class Order extends Model
 {
     protected $connection = 'supabase';

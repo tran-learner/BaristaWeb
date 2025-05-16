@@ -4,6 +4,7 @@
     <h1 class="flex font-extrabold text-3xl text-navy"><pre>SETTING MACHINE
         </pre></h1>
 </div>
+
     <pre><br>   Cleaning machine       <button id = "clean" style="background-color: #0075FF" class = "opacity-clicked set_but">Clean</button></pre>
     <pre><br>   Shutdown machine       <button id = "shut" style="background-color: #eb4934" class = "opacity-clicked set_but">Shutdown</button></pre>
     <pre><br>   Restart machine        <button id = "restart" style="background-color: #c6eb34" class = "opacity-clicked set_but">Restart</button></pre>

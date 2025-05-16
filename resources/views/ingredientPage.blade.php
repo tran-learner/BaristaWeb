@@ -3,7 +3,7 @@
     <div id="contentWrap" class="flex flex-row items-center justify-center w-full">
         <div id="ingListContainer"
             class="flex flex-col flex-wrap gap-4 justify-between sm:justify-between w-5/6 max-w-[360px] sm:max-w-full">
-            <h1 id="drink-name" data-name="{{ $drink }}" data-price="{{ $price[0] }}" class="font-light text-3xl
+            <h1 id="drink-name" data-name="{{ $drink }}" data-price="{{ $price }}" class="font-light text-3xl
                 text-center text-gray-700 mb-7">Build your {{ $drink }}</h1>
                 <img src="{{ asset($imagePath) }}" alt="Drink Image" class="w-35/100 h-1/2 mx-auto mb-5">
             @foreach ($ingredients as $ing)
