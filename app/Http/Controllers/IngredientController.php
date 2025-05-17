@@ -25,14 +25,34 @@ class IngredientController extends Controller
         }
 
         // Access properties using -> instead of []
-        // Use correct column name casing "ImagePath"
+        // Use correct column name casing "imagePath" (assuming this is the column name)
         $imagePath = $drinkDetails->imagePath;
-        $ingredients = $drinkDetails->ingredients;
-        // Wrap price in an array to match view's expected usage ($price[0])
+        $ingredientsString = $drinkDetails->ingredients; // Get the string value
         $price = $drinkDetails->price;
 
+        // --- Start: Convert the ingredients string to an array ---
+
+        $ingredients = []; // Initialize an empty array for ingredients
+
+        // Check if the ingredients string is not null and not an empty PostgreSQL array string "{}"
+        if (!empty($ingredientsString) && $ingredientsString !== '{}') {
+            // Remove the curly braces from the start and end of the string
+            $cleanedIngredientsString = trim($ingredientsString, '{}');
+
+            // Split the string by commas to get individual ingredients
+            // Note: This simple explode works if ingredients don't contain commas themselves.
+            // For more complex cases, you might need a more robust parsing method.
+            $ingredients = explode(',', $cleanedIngredientsString);
+
+            // Optional: Trim whitespace from each ingredient
+            $ingredients = array_map('trim', $ingredients);
+        }
+
+        // --- End: Convert the ingredients string to an array ---
+
+
         // Pass the data to the view
-        // Pass the original $drink variable to the view if needed
+        // $ingredients is now a PHP array
         return view("ingredientPage", compact('ingredients', 'drink', 'price', 'imagePath'));
     }
 }
