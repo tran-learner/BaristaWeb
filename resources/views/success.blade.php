@@ -15,7 +15,7 @@
         async function sendIngredientQuantity() {
             // Create payload from input values
             try {
-                const response = await fetch('https://a163-125-235-236-149.ngrok-free.app/pumphandle', {
+                const response = await fetch('https://9e8a-125-235-236-38.ngrok-free.app/pumphandle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -10,9 +10,9 @@
                 <div class="flex items-center justify-center gap-5">
                     <label class="font-bold text-navy text-xl" for="{{ $ing . 'Input' }}">{{ $ing }}</label>
                     <div class="flex gap-2">
-                        <button class="size-button text-xl opacity-clicked" data-ing="{{ $ing }}" data-value="50">S</button>
-                        <button class="size-button text-xl opacity-clicked" data-ing="{{ $ing }}" data-value="100">M</button>
-                        <button class="size-button text-xl opacity-clicked" data-ing="{{ $ing }}" data-value="150">L</button>
+                        <button class="size-button text-xl opacity-clicked" data-ing="{{ $ing }}" data-value="S">S</button>
+                        <button class="size-button text-xl opacity-clicked" data-ing="{{ $ing }}" data-value="M">M</button>
+                        <button class="size-button text-xl opacity-clicked" data-ing="{{ $ing }}" data-value="L">L</button>
                     </div>
                     <input type="hidden" id="{{ $ing . 'Input' }}" name="{{ $ing }}" value="0">
                     <output id="{{ $ing . 'Output' }}">0</output>
