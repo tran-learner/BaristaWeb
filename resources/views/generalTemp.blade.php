@@ -48,7 +48,7 @@
 <body>
     <div id="overlay"
         class="bg-gray-700/75 w-screen h-screen fixed z-50 flex items-center justify-center backdrop-blur-sm hidden">
-        <div id="suggestFrame"
+        {{-- <div id="suggestFrame"
             class="w-1/2 h-1/2 bg-white rounded-lg flex flex-col overflow-hidden justify-center items-center">
             <div class="flex text-lg flex-3 items-center justify-center">
                 <p class="" id="suggestString"></p>
@@ -57,7 +57,40 @@
                 <button id="noBtn" class="bg-gray-500 text-white p-3 rounded-md">Maybe no...</button>
                 <button id="okayBtn" class="bg-navy text-white p-3 px-7 rounded-md">Okay!</button>
             </div>
+        </div> --}}
+        <div id="suggestFrame"
+            class="relative w-1/2 h-1/2 bg-white rounded-lg flex flex-col overflow-hidden justify-center items-center">
+
+            <!-- Loading Overlay -->
+            <div id="loadingOverlay" class="absolute inset-0 bg-white/80 flex items-center justify-center z-10 hidden">
+                <p id="loadingStr" class="text-lg font-semibold text-gray-700 animate-pulse">Chatting with voice
+                    assistant...</p>
+            </div>
+
+            <!-- Suggest Content -->
+            <div id="suggestContent" class="flex flex-col flex-1 w-full h-full items-center justify-center z-0 hidden">
+                <div class="flex text-lg flex-3 items-center justify-center h-1/2">
+                    <p id="suggestString"></p>
+                </div>
+                <div class="flex-1 items-center gap-5 justify-center flex">
+                    <button id="noBtn" class="bg-gray-500 text-white p-3 rounded-md">Maybe no...</button>
+                    <button id="okayBtn" class="bg-navy text-white p-3 px-7 rounded-md">Okay!</button>
+                </div>
+            </div>
+
+            <!-- Voice confirm content -->
+            <div id="confirmContent" class="flex flex-col flex-1 w-full h-full items-center justify-center z-0 hidden">
+                <div class="flex text-lg flex-3 items-center justify-center h-1/2">
+                    <p id="confirmString" class="text-xl font-semibold text-center text-gray-800 px-4"></p>
+                </div>
+                <div class="flex-1 items-center gap-5 justify-center flex hidden">
+                    <button id="noBtn" class="bg-gray-500 text-white p-3 rounded-md">Maybe no...</button>
+                    <button id="okayBtn" class="bg-navy text-white p-3 px-7 rounded-md">Okay!</button>
+                </div>
+            </div>
+
         </div>
+
     </div>
     <div class="background"></div>
     <div id="languageBtn" class="border-1 border-gray-200 text-navy h-fit w-fit px-3 py-2 rounded-md">EN</div>
