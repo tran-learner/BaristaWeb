@@ -8,11 +8,11 @@
         <p class="text-base font-medium">Suggest me</p>
         <img src="{{ asset('images/app_icon/star.png') }}" alt="Mic" class="w-5 h-5">
     </div>
-    <div id="voiceBtn"
+    {{-- <div id="voiceBtn"
         class="bg-black text-white px-4 py-2 rounded-md flex items-center gap-2 shadow-md hover:bg-gray-800 transition mt-3">
         <p class="text-base font-medium">Voice order</p>
         <img src="{{ asset('images/app_icon/in_mic.png') }}" alt="Mic" class="w-5 h-5">
-    </div>
+    </div> --}}
 </div>
 
 
@@ -47,14 +47,17 @@
 
 <script>
     const CAMERA_SERVER = "{{ env('VITE_CAMERA_SERVER') }}"
-    const VOICE_SERVER = "{{ env('VITE_VOICE_SERVER') }}"
+    const VOICE_WS_SERVER = "{{ env('VITE_VOICE_WS_SERVER') }}" // ví dụ: ws://127.0.0.1:8001/ws
+
     document.addEventListener('DOMContentLoaded', function() {
+        let voiceSocket = null;
+
         document.getElementById("suggestBtn").onclick = async function() {
-            const customer = await predictFace()
-            const suggestResult = handleSuggestString(customer)
-            const pElement = document.getElementById("suggestString").textContent = suggestString
-            pElement.textContent = suggestResult.suggestString
-            pElement.dataset.drink = suggestResult.drinkName
+            const customer = await predictFace();
+            const suggestResult = handleSuggestString(customer);
+            const pElement = document.getElementById("suggestString");
+            pElement.textContent = suggestResult.suggestString;
+            pElement.dataset.drink = suggestResult.drinkName;
             document.getElementById("overlay").classList.remove("hidden");
         }
 
@@ -63,14 +66,12 @@
                 const response = await fetch(CAMERA_SERVER)
                 const prediction = await response.json()
                 console.log(prediction)
-                var age, gender
-                age = prediction.age
-                gender = prediction.gender >= 0.6 ? 1 : 0
-                const obj = {
-                    age: age,
-                    gender: gender
+                const age = prediction.age
+                const gender = prediction.gender >= 0.6 ? 1 : 0
+                return {
+                    age,
+                    gender
                 }
-                return obj
             } catch (e) {
                 console.log(e)
             }
@@ -81,40 +82,62 @@
             const male30 = (customer.gender == 0 && customer.age >= 3)
             const maleUnder30 = (customer.gender == 0 && customer.age < 3)
             const female30 = (customer.gender == 1 && customer.age >= 3)
-            const femaleUnder30 = (customer.gender == 0 && customer.age < 3)
+            const femaleUnder30 = (customer.gender == 1 && customer.age < 3)
             if (male30) {
                 drinkName = 'Coffee'
-                suggestString =
-                    `Looks like a gentle man around ${customer.age}0s out there, `
+                suggestString = `Looks like a gentle man around ${customer.age}0s out there, `
             } else if (maleUnder30) {
                 drinkName = 'Milk Coffee'
-                suggestString =
-                    `Looks like a gentle man around ${customer.age}0s out there, `
+                suggestString = `Looks like a gentle man around ${customer.age}0s out there, `
             } else if (female30) {
                 drinkName = 'Tea'
-                suggestString =
-                    `Looks like a beautiful lady around ${customer.age}0s out there, `
+                suggestString = `Looks like a beautiful lady around ${customer.age}0s out there, `
             } else {
                 drinkName = 'Milk Tea'
                 suggestString = `Looks like a little girl out there, `
             }
             suggestString += `would you like to try our ${drinkName}?`
-            const obj = {
-                drinkName: drinkName,
-                suggestString: suggestString
+            return {
+                drinkName,
+                suggestString
             }
-            return obj
         }
-        document.getElementById('voiceBtn').onclick = async function() {
-            // hiện overlay
-            displayLoading('voice')
-            // kết nối với voice server 
-            const order = await getOrderByVoice()
-            const orderString = handleOrderString(order)
-            // hiện kết quả
-            voicePopup(orderString)
-            operatePayment(order)
-            // đến payload
+
+        function micReady() {
+            if (!voiceSocket || voiceSocket.readyState !== WebSocket.OPEN) {
+                connectVoiceWebSocket()
+            }
+        }
+
+        function connectVoiceWebSocket() {
+            voiceSocket = new WebSocket(VOICE_WS_SERVER)
+
+            voiceSocket.onopen = function() {
+                console.log('Voice WebSocket connected.')
+            }
+
+            voiceSocket.onmessage = function(event) {
+                const data = JSON.parse(event.data)
+                console.log('WS Data:', data)
+
+                if (data.type === 'start') {
+                    displayLoading('voice')
+                } else if (data.type === 'voiceOrderResult') {
+                    const order = data.data
+                    console.log(order)
+                    const orderString = handleOrderString(order)
+                    voicePopup(orderString)
+                    operatePayment(order)
+                }
+            }
+
+            voiceSocket.onerror = function(err) {
+                console.error('WebSocket error:', err)
+            }
+
+            voiceSocket.onclose = function() {
+                console.log('Voice WebSocket disconnected.')
+            }
         }
 
         function displayLoading(type) {
@@ -127,13 +150,6 @@
             document.getElementById('loadingStr').textContent = str
             document.getElementById("overlay").classList.remove("hidden")
             document.getElementById("loadingOverlay").classList.remove("hidden")
-        }
-
-        async function getOrderByVoice() {
-            const response = await fetch(VOICE_SERVER)
-            console.log(response)
-            const res = await response.json()
-            return res
         }
 
         function handleOrderString(res) {
@@ -156,11 +172,11 @@
         }
 
         async function operatePayment(orderObj) {
-            console.log(orderObj)
             const drinkName = orderObj.drink
             const ingredients = orderObj.details
-            const payload = {}
-            payload.Name = drinkName
+            const payload = {
+                Name: drinkName
+            }
             for (let ing in ingredients) {
                 if (ing == 'price') break
                 let level = ingredients[ing]
@@ -169,10 +185,10 @@
                 else level = 150
                 payload[`${ing}`] = level
             }
-            payload.State = 0;
+            payload.State = 0
             payload.Price = orderObj.details.price
-            console.log(payload)
-            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             fetch('/checkout', {
                     method: 'POST',
                     headers: {
@@ -181,13 +197,8 @@
                     },
                     body: JSON.stringify(payload)
                 })
-                .then(res => {
-                    result = res.json()
-                    console.log(result)
-                    return result
-                })
+                .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
                     window.location.href = data.checkoutUrl
                 })
         }
@@ -195,22 +206,21 @@
         function mapLevel(code) {
             switch (code) {
                 case 's':
-                    return 'small';
+                    return 'small'
                 case 'm':
-                    return 'medium';
+                    return 'medium'
                 case 'l':
-                    return 'large';
+                    return 'large'
                 default:
-                    return 'Normal';
+                    return 'Normal'
             }
         }
 
         function uncapitalize(str) {
-            return str.charAt(0).toLowerCase() + str.slice(1);
+            return str.charAt(0).toLowerCase() + str.slice(1)
         }
 
         document.getElementById("okayBtn").onclick = function() {
-            console.log('click')
             const drinkName = document.getElementById('suggestString').dataset.drink
             document.getElementById(drinkName).click()
         }
@@ -224,5 +234,8 @@
             document.getElementById('confirmString').textContent = str
             document.getElementById('confirmContent').classList.remove('hidden')
         }
+
+        micReady()
+
     })
 </script>
