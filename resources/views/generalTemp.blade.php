@@ -12,6 +12,7 @@
     @vite('resources/css/tailwind.css')
     <link rel="stylesheet" href="{{ asset('css/blur.css') }}">
     <style>
+        /* CSS hiện có của bạn */
         .fixed-buttons {
             position: fixed;
             top: 10px;
@@ -42,11 +43,55 @@
             z-index: 1;
             /* Ensure it's above the background */
         }
+
+        /* --- HIỆU ỨNG FADE-IN MỚI --- */
+
+        /* Định nghĩa animation fade-in */
+        @keyframes fadeInMoveUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Bắt đầu hơi dịch chuyển xuống dưới */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Về vị trí ban đầu */
+            }
+        }
+
+        /* Ẩn các phần tử ban đầu trước khi animation chạy */
+        .fade-target {
+            opacity: 0;
+        }
+
+        /* Class để kích hoạt animation */
+        .fade-in-active {
+            animation: fadeInMoveUp 0.8s ease-out forwards; /* Tên, thời gian, hàm thời gian, giữ trạng thái cuối */
+        }
+
+        /* Đảm bảo footer cũng có thể được style nếu cần */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            color: #555;
+            font-size: 0.9em;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
 <body>
-    <div class="background"></div>
+    <div class="background" id="backgroundEffect"></div>
+
     <div id="languageBtn" class="border-1 border-gray-200 text-navy h-fit w-fit px-3 py-2 rounded-md">EN</div>
     <div class="fixed-buttons">
         <a id="backBtn" onclick="history.back()"
@@ -55,25 +100,59 @@
                 <a id="setBtn" href="{{ route('Setting') }}"
                     class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md">Setting</a>
     </div>
+
     <div id="wholePage" class="flex flex-col items-center">
-        <div class="bg-white w-5/6 rounded-2xl mt-10 opacity-97">
-            <div id="pageTitle" class="flex flex-1 items-center justify-center min-h-[150px] ">
+        <div class="bg-white w-5/6 rounded-2xl mt-10 opacity-97" id="whiteBackground">
+            <div id="pageTitle" class="flex flex-1 items-center justify-center min-h-[150px]">
                 <h1 class="flex font-extrabold text-3xl text-navy">AUTO BARISTA MACHINE</h1>
             </div>
-            <div id="pageContent" class="flex-6">
+            <div id="pageContent" class="flex-6 fade-target">
                 @yield('specifyContent')
             </div>
             <br>
         </div>
+        <!-- Nút CONTACT US và footer không nằm trong chuỗi fade-in chính,
+             nhưng bạn có thể thêm class .fade-target và ID nếu muốn chúng fade in sau cùng -->
         <button onclick="window.location.href='/teamInfo'" id="contact_us">CONTACT US</button>
     </div>
-    <div>
+    <footer>
         <link rel="stylesheet" href="css/opacity_bt.css">
         <p style="z-index: 1; position: relative;">If you have any problem or feedback, please contact email: <a
                 href="mailto:ng.tri.hoang2004ct@gmail.com">ng.tri.hoang2004ct@gmail.com</a> or phone number: <a
                 href="tel:+84907208782">+84907208782</a></p>
-    </div>
+    </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const backgroundEffect = document.getElementById('backgroundEffect');
+            const whiteBackground = document.getElementById('whiteBackground');
+            const pageTitle = document.getElementById('pageTitle');
+            const pageContent = document.getElementById('pageContent');
+            // Bạn có thể thêm các phần tử khác ở footer nếu muốn chúng fade in sau cùng
+            // const contactUsBtn = document.getElementById('contact_us');
+            // const footerText = document.querySelector('footer p');
+
+            // Hàm để thêm class và kích hoạt fade-in
+            const activateFadeIn = (element, delay) => {
+                if (element) {
+                    setTimeout(() => {
+                        element.classList.add('fade-in-active');
+                    }, delay);
+                }
+            };
+
+            const animationDuration = 800; // Thời gian animation của mỗi phần tử (ms)
+            const delayBetweenElements = 250; // Khoảng cách thời gian giữa các phần tử (ms)
+
+            // backgroundEffect, whiteBackground và pageTitle sẽ hiển thị ngay lập tức
+            // Kích hoạt các hiệu ứng cho các phần tử còn lại
+            activateFadeIn(pageContent, 0); // Nội dung chính sẽ là phần tử đầu tiên fade in
+
+            // Nếu bạn muốn nút CONTACT US và footer cũng fade in, hãy thêm vào đây:
+            // activateFadeIn(contactUsBtn, delayBetweenElements * 4);
+            // activateFadeIn(footerText, delayBetweenElements * 5);
+        });
+    </script>
 </body>
 
 </html>
