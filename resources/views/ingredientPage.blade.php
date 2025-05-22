@@ -70,6 +70,7 @@
                 acc[ing.charAt(0).toUpperCase() + ing.slice(1)] = input ? input.value : 0;
                 return acc;
             }, {});
+            console.log(payload)
             payload.State = 0;
             const drinkName = document.getElementById('drink-name').getAttribute('data-name')
             const price = document.getElementById('drink-name').getAttribute('data-price')

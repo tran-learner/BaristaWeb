@@ -16,13 +16,13 @@
 
 <script>
     cleaning={
-        Coffee: 2160,
-        Milk: 2160,
-        Tea: 2160,
-        Sugar: 2160,
+        Coffee: 216000,
+        Milk: 216000,
+        Tea: 216000,
+        Sugar: 216000,
         State: 0,
     }
-    let ngrokURL='https://a163-125-235-236-149.ngrok-free.app/pumphandle'
+    let ngrokURL='https://0670-125-235-236-149.ngrok-free.app/pumphandle'
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("clean").onclick = async function() {await sendCleaning();}
         async function sendCleaning() {
