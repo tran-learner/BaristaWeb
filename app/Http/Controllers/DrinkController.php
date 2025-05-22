@@ -12,7 +12,6 @@ class DrinkController extends Controller
         // $drinks = config('drinks.drinkData')['drinks'];
         // return view('drinkList', compact('drinks'));
         $item = DB::select("SELECT * FROM drinkdata");
-        // dd($item);
         return view('drinkList', compact('item'));
     }
 }
