@@ -142,8 +142,8 @@
         <a id="backBtn" onclick="history.back()"
             class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md">
             < </a>
-                <a id="setBtn" href="{{ route('Setting') }}"
-                    class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md">Setting</a>
+                {{-- <a id="setBtn" href="{{ route('Setting') }}" --}}
+                    {{-- class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md">Setting</a> --}}
     </div>
 
     <div id="wholePage" class="flex flex-col items-center">

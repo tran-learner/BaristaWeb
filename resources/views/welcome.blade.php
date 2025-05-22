@@ -96,9 +96,9 @@
         class="absolute border-1 border-gray-200 text-navy h-fit w-fit px-3 py-2 rounded-md right-2 top-2"
         style="position:fixed">EN</div>
     <div class="absolute left-2 top-2 flex gap-4">
-        <a id="setBtn" href="{{ route('Setting') }}"
-            class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md"
-            style="position: fixed">Setting</a>
+        {{-- <a id="setBtn" href="{{ route('Setting') }}" --}}
+            {{-- class="border-1 border-gray-200 text-gray-400 h-fit w-fit px-3 py-1 pb-2 rounded-md" --}}
+            {{-- style="position: fixed">Setting</a> --}}
     </div>
     <div class="flex items-center justify-center">
         <div class="bg-white w-5/6 min-h-9/10 rounded-2xl h-fit mt-50 opacity-95 fade-target" id="whiteBackground">
